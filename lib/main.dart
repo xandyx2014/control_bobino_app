@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'route.dart';
 
 void main() => runApp(MyApp());
@@ -11,11 +12,12 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'auth',
-      routes: routesPages,
+      initialRoute: AppRoutes.auth,
+      // routes: routesPages,
+      getPages: AppPage.routes,
     );
   }
 }

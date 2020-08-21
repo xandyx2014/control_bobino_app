@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'list_page_widget.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key key}) : super(key: key);
 
@@ -14,25 +16,30 @@ class DrawerWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Drawer Header'),
+            child: Center(
+                child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 50.0,
+                  child: Icon(
+                    Icons.dashboard,
+                    size: 35.0,
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Text(
+                  'Calculadora App',
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            )),
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
           ),
-          ListTile(
-            title: Text('Item 1'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-          ListTile(
-            title: Text('Item 2'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
+          ListPageWidget()
         ],
       ),
     );

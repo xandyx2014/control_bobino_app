@@ -1,22 +1,37 @@
+import 'package:control_animal_app/route.dart';
 import 'package:control_animal_app/src/model/product_model.dart';
 import 'package:control_animal_app/src/utils/cart_icons_icons.dart';
+import 'package:control_animal_app/src/widgets/list_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../utils/cart_icons_icons.dart';
 
 class HomeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _scaffoldKey,
       body: Container(
         color: const Color(0xffF4F7FA),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           children: <Widget>[
-            _TitleHome(title: 'Calculos', subTitle: 'Ver todos'),
+            _TitleHome(
+              title: 'Calculos',
+              subTitle: 'Ver todos',
+              ontap: () {},
+            ),
             _HomeButtonsMenu(),
             _TitleHome(
               title: 'Opciones',
-              subTitle: 'todas',
+              subTitle: 'Todos',
+              ontap: () {
+                _scaffoldKey.currentState.openDrawer();
+              },
             ),
+            ListPageWidget()
+
             // _buildDealList(),
             // _buildDealList()
           ],
@@ -114,12 +129,13 @@ class HomeList extends StatelessWidget {
 class _TitleHome extends StatelessWidget {
   final String title;
   final String subTitle;
-
-  const _TitleHome({
-    Key key,
-    @required this.title,
-    @required this.subTitle,
-  }) : super(key: key);
+  final VoidCallback ontap;
+  const _TitleHome(
+      {Key key,
+      @required this.title,
+      @required this.subTitle,
+      @required this.ontap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +155,7 @@ class _TitleHome extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 16, top: 4),
           child: FlatButton(
-            onPressed: () {},
+            onPressed: this.ontap,
             child: Text(
               this.subTitle,
               style: TextStyle(color: ThemeData().primaryColor),
@@ -165,7 +181,9 @@ class _HomeButtonsMenu extends StatelessWidget {
           _ButtonMenu(
             icon: Icons.dashboard,
             text: 'Lecheria',
-            ontap: () {},
+            ontap: () {
+              goPageLecheria();
+            },
           ),
           _ButtonMenu(
             icon: Icons.data_usage,
@@ -175,6 +193,10 @@ class _HomeButtonsMenu extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void goPageLecheria() {
+    Get.toNamed(AppRoutes.lecheria);
   }
 }
 
