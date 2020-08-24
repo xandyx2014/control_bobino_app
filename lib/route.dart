@@ -1,5 +1,7 @@
+import 'package:control_animal_app/src/pages/calculo_engorde/calculo_engorde.dart';
+import 'package:control_animal_app/src/pages/calculo_leche/calculo_leche.dart';
+import 'package:control_animal_app/src/pages/engorde/engorde_page.dart';
 import 'package:control_animal_app/src/pages/lecheria/lecheria_page.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'src/pages/auth/auth_page.dart';
 import 'src/pages/home/home_page.dart';
@@ -10,6 +12,9 @@ abstract class AppRoutes {
   static const register = 'register';
   static const home = 'home';
   static const lecheria = 'lecheria';
+  static const engorde = 'engorde';
+  static const calculoLeche = 'calculo_leche';
+  static const calculoEngorde = 'calculo_engorde';
 }
 
 class AppPage {
@@ -18,11 +23,8 @@ class AppPage {
     GetPage(name: AppRoutes.register, page: () => RegisterPage()),
     GetPage(name: AppRoutes.home, page: () => HomePage()),
     GetPage(name: AppRoutes.lecheria, page: () => LecheriaPage()),
+    GetPage(name: AppRoutes.engorde, page: () => EngordePage()),
+    GetPage(name: AppRoutes.calculoLeche, page: () => CalculoLechePage()),
+    GetPage(name: AppRoutes.calculoEngorde, page: () => CalculoEngordePage()),
   ];
 }
-
-final Map<String, WidgetBuilder> routesPages = {
-  'auth': (context) => AuthPage(),
-  'register': (context) => RegisterPage(),
-  'home': (context) => HomePage()
-};

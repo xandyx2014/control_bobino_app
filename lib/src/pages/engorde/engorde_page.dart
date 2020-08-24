@@ -3,21 +3,21 @@ import 'package:control_animal_app/src/widgets/content_page_widget.dart';
 import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 
-class LecheriaPage extends StatelessWidget {
+class EngordePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ContenidoPagina(
-        titulo: 'Lecheria calculo',
-        urlImage: 'assets/lechera.jpg',
-        child: ListLecheria(),
+        titulo: 'Engorde calculo',
+        urlImage: 'assets/engorde.jpg',
+        child: ListEngorde(),
       ),
     );
   }
 }
 
-class ListLecheria extends StatelessWidget {
-  const ListLecheria({
+class ListEngorde extends StatelessWidget {
+  const ListEngorde({
     Key key,
   }) : super(key: key);
 

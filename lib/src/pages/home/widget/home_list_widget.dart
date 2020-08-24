@@ -188,11 +188,17 @@ class _HomeButtonsMenu extends StatelessWidget {
           _ButtonMenu(
             icon: Icons.data_usage,
             text: 'Engorde',
-            ontap: () {},
+            ontap: () {
+              goPageEngorde();
+            },
           ),
         ],
       ),
     );
+  }
+
+  void goPageEngorde() {
+    Get.toNamed(AppRoutes.engorde);
   }
 
   void goPageLecheria() {
