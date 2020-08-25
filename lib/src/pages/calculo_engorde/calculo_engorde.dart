@@ -1,11 +1,33 @@
+import 'package:control_animal_app/src/widgets/chart_pie_widget.dart';
+import 'package:control_animal_app/src/widgets/insumo_formulacion_widget.dart';
+import 'package:control_animal_app/src/widgets/racion_animal_dia_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CalculoEngordePage extends StatelessWidget {
   final pageController = new PageController(
     initialPage: 0,
-    viewportFraction: 0.8,
+    viewportFraction: 0.95,
   );
+  Widget _buttonNext() {
+    return SizedBox(
+      width: 220,
+      child: MaterialButton(
+        height: Get.width * 0.15,
+        textColor: Colors.white,
+        elevation: 6.0,
+        color: ThemeData().primaryColor,
+        onPressed: () {
+          pageController.nextPage(
+              duration: Duration(milliseconds: 800), curve: Curves.ease);
+        },
+        child: Text(
+          'Siguiente',
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,42 +36,66 @@ class CalculoEngordePage extends StatelessWidget {
         title: Text('Ganacia de peso'),
         centerTitle: true,
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
+      /* floatingActionButton: FloatingActionButton(onPressed: () {
         pageController.nextPage(
             duration: Duration(milliseconds: 800), curve: Curves.easeIn);
-      }),
+      }), */
       body: Center(
         child: SizedBox(
-          height: Get.height * 0.70,
+          height: Get.height * 0.82,
           width: Get.width,
           child: PageView(
             controller: pageController,
-            physics: NeverScrollableScrollPhysics(),
+            // physics: NeverScrollableScrollPhysics(),
             reverse: false,
             children: [
-              Container(
-                width: 50,
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Card(
-                  elevation: 15,
-                  child: Center(
-                    child: DatosAnimalLecheria(),
-                  ),
+              PageCalcule(
+                child: Center(
+                  child: Column(children: [
+                    DatosAnimalLecheria(),
+                    _buttonNext(),
+                  ]),
                 ),
               ),
-              Container(
-                width: Get.width,
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Card(
-                  elevation: 15,
-                  child: Text('lorem'),
-                ),
+              PageCalcule(
+                child: Column(children: [
+                  InsumoFormulacionWidget(),
+                  _buttonNext(),
+                ]),
               ),
+              PageCalcule(
+                child: Column(children: [
+                  ChartInsumoFormulacion(),
+                  _buttonNext(),
+                ]),
+              ),
+              PageCalcule(
+                child: Column(
+                  children: [
+                    RacionAnimalWidget(),
+                  ],
+                ),
+              )
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class PageCalcule extends StatelessWidget {
+  final Widget child;
+
+  const PageCalcule({Key key, this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5.0),
+      child: Card(
+        elevation: 15,
+        child: child,
       ),
     );
   }
@@ -66,9 +112,18 @@ class DatosAnimalLecheria extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ListTile(
-            title: Text('Datos del animal'),
-            subtitle: Text('Completa los datos'),
+          Container(
+            color: ThemeData().primaryColor,
+            child: ListTile(
+              title: Text(
+                'Datos del animal',
+                style: TextStyle(color: Colors.white),
+              ),
+              subtitle: Text(
+                'Completa los datos',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -142,19 +197,6 @@ class DatosAnimalLecheria extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          SizedBox(
-            width: 220,
-            child: MaterialButton(
-              height: Get.height * 0.088,
-              textColor: Colors.white,
-              elevation: 6.0,
-              color: ThemeData().primaryColor,
-              onPressed: () {},
-              child: Text(
-                'Siguiente',
-              ),
-            ),
-          )
         ],
       ),
     );
