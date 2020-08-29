@@ -2,6 +2,7 @@ import 'package:control_animal_app/src/pages/calculo_engorde/calculo_engorde.dar
 import 'package:control_animal_app/src/pages/calculo_leche/calculo_leche.dart';
 import 'package:control_animal_app/src/pages/engorde/engorde_page.dart';
 import 'package:control_animal_app/src/pages/lecheria/lecheria_page.dart';
+import 'package:control_animal_app/src/pages/welcome/welcome_page.dart';
 import 'package:get/get.dart';
 import 'src/pages/auth/auth_page.dart';
 import 'src/pages/home/home_page.dart';
@@ -15,6 +16,7 @@ abstract class AppRoutes {
   static const engorde = 'engorde';
   static const calculoLeche = 'calculo_leche';
   static const calculoEngorde = 'calculo_engorde';
+  static const welcome = 'welcome';
 }
 
 class AppPage {
@@ -26,5 +28,6 @@ class AppPage {
     GetPage(name: AppRoutes.engorde, page: () => EngordePage()),
     GetPage(name: AppRoutes.calculoLeche, page: () => CalculoLechePage()),
     GetPage(name: AppRoutes.calculoEngorde, page: () => CalculoEngordePage()),
+    GetPage(name: AppRoutes.welcome, page: () => WelcomePage()),
   ];
 }

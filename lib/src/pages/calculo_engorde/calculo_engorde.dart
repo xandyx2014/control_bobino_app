@@ -16,7 +16,7 @@ class CalculoEngordePage extends StatelessWidget {
         height: Get.width * 0.15,
         textColor: Colors.white,
         elevation: 6.0,
-        color: ThemeData().primaryColor,
+        color: Theme.of(Get.context).primaryColor,
         onPressed: () {
           pageController.nextPage(
               duration: Duration(milliseconds: 800), curve: Curves.ease);
@@ -33,7 +33,7 @@ class CalculoEngordePage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        title: Text('Ganacia de peso'),
+        title: Text('Calculos de ganancia de peso'),
         centerTitle: true,
       ),
       /* floatingActionButton: FloatingActionButton(onPressed: () {
@@ -113,7 +113,7 @@ class DatosAnimalLecheria extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            color: ThemeData().primaryColor,
+            color: Theme.of(context).primaryColor,
             child: ListTile(
               title: Text(
                 'Datos del animal',

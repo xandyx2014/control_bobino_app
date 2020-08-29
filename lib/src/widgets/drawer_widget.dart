@@ -21,10 +21,8 @@ class DrawerWidget extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 50.0,
-                  child: Icon(
-                    Icons.dashboard,
-                    size: 35.0,
-                  ),
+                  backgroundColor: Colors.white,
+                  child: ClipOval(child: Image.asset('assets/logo.jpeg')),
                 ),
                 SizedBox(
                   height: 10.0,
@@ -35,9 +33,7 @@ class DrawerWidget extends StatelessWidget {
                 )
               ],
             )),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
+            decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),
           ListPageWidget()
         ],

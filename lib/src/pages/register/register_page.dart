@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             'Login',
                             style: TextStyle(
                               fontSize: 20,
-                              color: ThemeData().primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -163,7 +163,7 @@ class _FormData extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.75,
             margin: EdgeInsets.all(16),
             decoration: BoxDecoration(
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             child: MaterialButton(
               onPressed: () {},

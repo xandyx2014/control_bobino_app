@@ -1,3 +1,4 @@
+import 'package:control_animal_app/src/controller/global_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -12,10 +13,14 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    Get.put(GlobalController());
     return GetMaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.auth,
+      theme: ThemeData(
+        primaryColor: Colors.green[300],
+      ),
       // routes: routesPages,
       getPages: AppPage.routes,
     );

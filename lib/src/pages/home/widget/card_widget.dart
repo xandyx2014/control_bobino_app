@@ -7,7 +7,8 @@ class CartPage extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           ListView.separated(
-            itemCount: 5,
+            shrinkWrap: true,
+            itemCount: 1,
             separatorBuilder: (context, index) {
               return Divider();
             },

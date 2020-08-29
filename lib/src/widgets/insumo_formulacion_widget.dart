@@ -11,7 +11,7 @@ class InsumoFormulacionWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: ThemeData().primaryColor,
+          color: Theme.of(context).primaryColor,
           child: ListTile(
             title: Text(
               'Insumos de formulacion',

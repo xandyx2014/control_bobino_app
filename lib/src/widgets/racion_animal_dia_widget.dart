@@ -22,7 +22,7 @@ class RacionAnimalWidget extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: ThemeData().primaryColor,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(

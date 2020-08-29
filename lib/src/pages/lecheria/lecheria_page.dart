@@ -8,8 +8,8 @@ class LecheriaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ContenidoPagina(
-        titulo: 'Lecheria calculo',
-        urlImage: 'assets/lechera.jpg',
+        titulo: 'Produccion de leche',
+        urlImage: 'assets/leche.jpeg',
         child: ListLecheria(),
       ),
     );
@@ -23,7 +23,7 @@ class ListLecheria extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = ThemeData().primaryColor;
+    final Color primaryColor = Theme.of(context).primaryColor;
     return Container(
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(

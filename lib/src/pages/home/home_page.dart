@@ -27,24 +27,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: DrawerWidget(),
-      appBar: AppBar(
+      /* appBar: AppBar(
         leading: IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {
-              _scaffoldKey.currentState.openDrawer();
+              
             }),
         centerTitle: true,
         brightness: Brightness.dark,
         elevation: 0,
-        backgroundColor: ThemeData().primaryColor,
+        backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        title: Text(
-          'Hogar',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
+      ), */
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: ThemeData().primaryColor,
+        selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.shifting,
         currentIndex: _index,
@@ -92,7 +88,59 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: _widgetList[_index],
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'assets/menu.jpeg',
+                height: MediaQuery.of(context).size.height * 0.40,
+                width: double.maxFinite,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                top: 0,
+                left: 10.0,
+                child: SafeArea(
+                  child: FloatingActionButton(
+                    child: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      _scaffoldKey.currentState.openDrawer();
+                    },
+                    backgroundColor:
+                        Theme.of(context).primaryColor.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 0,
+                bottom: 0,
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(color: Colors.black26),
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Bienvenido a la aplicacion.',
+                          style: TextStyle(color: Colors.white, fontSize: 14.0),
+                        ),
+                        Text(
+                          'loremp ipsum dolor',
+                          style: TextStyle(color: Colors.white, fontSize: 12.0),
+                        ),
+                      ],
+                    )),
+              ),
+            ],
+          ),
+          _widgetList[_index],
+        ],
+      ),
     );
   }
 }

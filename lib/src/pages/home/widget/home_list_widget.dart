@@ -1,7 +1,6 @@
 import 'package:control_animal_app/route.dart';
 import 'package:control_animal_app/src/model/product_model.dart';
 import 'package:control_animal_app/src/utils/cart_icons_icons.dart';
-import 'package:control_animal_app/src/widgets/list_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../utils/cart_icons_icons.dart';
@@ -9,33 +8,31 @@ import '../../../utils/cart_icons_icons.dart';
 class HomeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _scaffoldKey = GlobalKey<ScaffoldState>();
-    return Scaffold(
-      key: _scaffoldKey,
-      body: Container(
-        color: const Color(0xffF4F7FA),
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: <Widget>[
-            _TitleHome(
+    return Container(
+      color: const Color(0xffF4F7FA),
+      // color: Colors.red,
+      child: ListView(
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
+        children: <Widget>[
+          /* _TitleHome(
               title: 'Calculos',
               subTitle: 'Ver todos',
               ontap: () {},
-            ),
-            _HomeButtonsMenu(),
-            _TitleHome(
+            ), */
+          _HomeButtonsMenu(),
+          /* _TitleHome(
               title: 'Opciones',
               subTitle: 'Todos',
               ontap: () {
                 _scaffoldKey.currentState.openDrawer();
               },
-            ),
-            ListPageWidget()
+            ), */
+          // ListPageWidget()
 
-            // _buildDealList(),
-            // _buildDealList()
-          ],
-        ),
+          // _buildDealList(),
+          // _buildDealList()
+        ],
       ),
     );
   }
@@ -126,6 +123,7 @@ class HomeList extends StatelessWidget {
   }
 }
 
+// ignore: unused_element
 class _TitleHome extends StatelessWidget {
   final String title;
   final String subTitle;
@@ -158,7 +156,7 @@ class _TitleHome extends StatelessWidget {
             onPressed: this.ontap,
             child: Text(
               this.subTitle,
-              style: TextStyle(color: ThemeData().primaryColor),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
           ),
         ),
@@ -174,35 +172,154 @@ class _HomeButtonsMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _ButtonMenu(
-            icon: Icons.dashboard,
-            text: 'Lecheria',
-            ontap: () {
-              goPageLecheria();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _ButtonMenu(
+              icon: Icons.dashboard,
+              text: 'Historial de calculo',
+              ontap: () {
+                _showMaterialDialogHistorial(context);
+              },
+            ),
+            _ButtonMenu(
+              icon: Icons.data_usage,
+              text: 'Nuevo Calculo',
+              ontap: () {
+                _showMaterialDialog(context);
+              },
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _ButtonMenu(
+              icon: Icons.info,
+              text: 'Informacion',
+              ontap: () {
+                // goPageLecheria();
+              },
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  void goPageEngorde() {}
+
+  void goPageLecheria() {}
+
+  _showMaterialDialog(context) {
+    final colorPrimari = Theme.of(context).primaryColor;
+    showDialog(
+      context: context,
+      barrierColor: Colors.black26,
+      builder: (_) => AlertDialog(
+        title: Text('Formulacion de balanceado para'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(),
+            ListTile(
+              onTap: () {
+                Get.offNamed(AppRoutes.calculoLeche);
+              },
+              title: Text('Vacas lecheras'),
+              // subtitle: Text('Calculo lecheria'),
+              leading: Icon(
+                Icons.arrow_right,
+                color: colorPrimari,
+                size: 30.0,
+              ),
+            ),
+            Divider(),
+            ListTile(
+              onTap: () {
+                Get.offNamed(AppRoutes.calculoEngorde);
+              },
+              // subtitle: Text('Calculo de engorde'),
+              title: Text('Ganacia de peso'),
+              leading: Icon(
+                Icons.arrow_right,
+                color: colorPrimari,
+                size: 30.0,
+              ),
+            ),
+            Divider(),
+          ],
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text(
+              'Cerrar',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+            onPressed: () {
+              Get.back();
             },
-          ),
-          _ButtonMenu(
-            icon: Icons.data_usage,
-            text: 'Engorde',
-            ontap: () {
-              goPageEngorde();
-            },
-          ),
+          )
         ],
       ),
     );
   }
 
-  void goPageEngorde() {
-    Get.toNamed(AppRoutes.engorde);
-  }
-
-  void goPageLecheria() {
-    Get.toNamed(AppRoutes.lecheria);
+  _showMaterialDialogHistorial(context) {
+    final colorPrimari = Theme.of(context).primaryColor;
+    showDialog(
+      context: context,
+      barrierColor: Colors.black26,
+      builder: (_) => AlertDialog(
+        title: Text('Historial de calculo de'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(),
+            ListTile(
+              onTap: () {
+                Get.offNamed(AppRoutes.lecheria);
+              },
+              title: Text('Vacas lecheras'),
+              // subtitle: Text('Calculo lecheria'),
+              leading: Icon(
+                Icons.arrow_right,
+                color: colorPrimari,
+                size: 30.0,
+              ),
+            ),
+            Divider(),
+            ListTile(
+              onTap: () {
+                Get.offNamed(AppRoutes.engorde);
+              },
+              // subtitle: Text('Calculo de engorde'),
+              title: Text('Ganacia de peso'),
+              leading: Icon(
+                Icons.arrow_right,
+                color: colorPrimari,
+                size: 30.0,
+              ),
+            ),
+            Divider(),
+          ],
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text(
+              'Cerrar',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+            onPressed: () {
+              Get.back();
+            },
+          )
+        ],
+      ),
+    );
   }
 }
 

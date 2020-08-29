@@ -17,13 +17,13 @@ class ListPageWidget extends StatelessWidget {
             child: ListTile(
               leading: Icon(
                 Icons.book,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               title: Text('Calculo'),
               subtitle: Text('Realiza un nuevo calculo'),
               trailing: Icon(
                 Icons.chevron_right,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -34,13 +34,13 @@ class ListPageWidget extends StatelessWidget {
             child: ListTile(
               leading: Icon(
                 Icons.dashboard,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               title: Text('Lechera'),
               subtitle: Text('Calculo de lecheria'),
               trailing: Icon(
                 Icons.chevron_right,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -52,13 +52,13 @@ class ListPageWidget extends StatelessWidget {
             child: ListTile(
               leading: Icon(
                 Icons.dashboard,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               title: Text('Engorde'),
               subtitle: Text('Calculo de engorde'),
               trailing: Icon(
                 Icons.chevron_right,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -70,13 +70,13 @@ class ListPageWidget extends StatelessWidget {
             child: ListTile(
               leading: Icon(
                 Icons.exit_to_app,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               title: Text('Salir'),
               subtitle: Text('Cerrar sesion'),
               trailing: Icon(
                 Icons.chevron_right,
-                color: ThemeData().primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -87,7 +87,7 @@ class ListPageWidget extends StatelessWidget {
   }
 
   _showMaterialDialog(context) {
-    final colorPrimari = ThemeData().primaryColor;
+    final colorPrimari = Theme.of(context).primaryColor;
     showDialog(
       context: context,
       barrierColor: Colors.black26,
@@ -127,7 +127,10 @@ class ListPageWidget extends StatelessWidget {
         ),
         actions: <Widget>[
           FlatButton(
-            child: Text('Cerrar'),
+            child: Text(
+              'Cerrar',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
             onPressed: () {
               Get.back();
             },

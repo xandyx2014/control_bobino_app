@@ -8,8 +8,8 @@ class EngordePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ContenidoPagina(
-        titulo: 'Engorde calculo',
-        urlImage: 'assets/engorde.jpg',
+        titulo: 'Ganancia de peso',
+        urlImage: 'assets/engorde.jpeg',
         child: ListEngorde(),
       ),
     );
@@ -23,7 +23,7 @@ class ListEngorde extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = ThemeData().primaryColor;
+    final Color primaryColor = Theme.of(context).primaryColor;
     return Container(
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
