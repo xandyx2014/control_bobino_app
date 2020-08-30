@@ -1,0 +1,450 @@
+[
+    {
+       "Ingrediente":"Nucleo Sal Mineral 4%",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Crescimiento Ag Milk Bol",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Producion Ag Milk Bol",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"CresciTurbo M",
+       "MS":"96.30",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Nucleo CD Produ Milk",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"56.40",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Nucleo CD Lacto Milk",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"56.40",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Premix LOTE 1 AGMilk",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"NutriLeche Plus",
+       "MS":"96.27",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Nucleo Cochabamba",
+       "MS":"96.21",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Fedeple Pus",
+       "MS":"96.00",
+       "NDT":"0.00",
+       "Mcal":"1.80",
+       "PB":"18.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Confinato P109",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Fosfato bi-Calcico",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Selenito de Na",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Iodato de Ca",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Iodato de K",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Carbonato de Co",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Sulfato de Co",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Cloreto de K",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Sulfato de Magnesio",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Sulfato de Mn",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Oxido de Zn",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"sulfato de Zn",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Calcita",
+       "MS":"97.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Sal Branco",
+       "MS":"92.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Virginiamicina 50%",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Monensina 20%",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Ureia",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"281.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Oxido de Magnesio",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Flor de Azufre",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Sulfato de Cobre",
+       "MS":"98.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Heno de Alfafa",
+       "MS":"89.32",
+       "NDT":"53.90",
+       "Mcal":"2.10",
+       "PB":"18.77",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Bagazo de Caña",
+       "MS":"30.00",
+       "NDT":"0.00",
+       "Mcal":"0.50",
+       "PB":"0.75",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Heno Brachiaria Brizanta",
+       "MS":"87.95",
+       "NDT":"50.55",
+       "Mcal":"1.82",
+       "PB":"4.13",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Heno Decumbes",
+       "MS":"88.68",
+       "NDT":"51.30",
+       "Mcal":"1.96",
+       "PB":"6.64",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Heno capim elefante",
+       "MS":"87.29",
+       "NDT":"48.53",
+       "Mcal":"1.76",
+       "PB":"5.95",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Cana de Azucar",
+       "MS":"28.77",
+       "NDT":"58.52",
+       "Mcal":"2.16",
+       "PB":"2.76",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Capim Elefante",
+       "MS":"21.56",
+       "NDT":"50.24",
+       "Mcal":"1.97",
+       "PB":"6.89",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Sorgo Forrageiro",
+       "MS":"24.11",
+       "NDT":"49.21",
+       "Mcal":"1.79",
+       "PB":"6.85",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Silaje cana de azucara",
+       "MS":"26.12",
+       "NDT":"65.74",
+       "Mcal":"2.43",
+       "PB":"3.77",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Silaje mombaza",
+       "MS":"24.99",
+       "NDT":"44.62",
+       "Mcal":"1.62",
+       "PB":"6.07",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Silaje de maiz",
+       "MS":"31.11",
+       "NDT":"64.39",
+       "Mcal":"2.41",
+       "PB":"7.24",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Silaje de Sorgo",
+       "MS":"29.76",
+       "NDT":"57.52",
+       "Mcal":"2.05",
+       "PB":"6.45",
+       "TIPO":"FORRAJE"
+    },
+    {
+       "Ingrediente":"Mayz",
+       "MS":"87.91",
+       "NDT":"86.22",
+       "Mcal":"3.12",
+       "PB":"9.05",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Sorgo",
+       "MS":"88.13",
+       "NDT":"85.90",
+       "Mcal":"3.04",
+       "PB":"9.67",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Afrecho de arroz",
+       "MS":"89.03",
+       "NDT":"78.21",
+       "Mcal":"2.91",
+       "PB":"13.22",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Cascarilla de soya",
+       "MS":"90.30",
+       "NDT":"63.61",
+       "Mcal":"2.44",
+       "PB":"12.48",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Trigo",
+       "MS":"87.97",
+       "NDT":"65.10",
+       "Mcal":"2.56",
+       "PB":"17.13",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Soya Solvente",
+       "MS":"88.57",
+       "NDT":"79.39",
+       "Mcal":"3.35",
+       "PB":"46.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"avena",
+       "MS":"90.44",
+       "NDT":"78.61",
+       "Mcal":"2.89",
+       "PB":"14.60",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"galinaza",
+       "MS":"80.90",
+       "NDT":"60.30",
+       "Mcal":"2.16",
+       "PB":"26.20",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Caroco Algodon",
+       "MS":"90.76",
+       "NDT":"80.55",
+       "Mcal":"3.06",
+       "PB":"22.89",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Soya integral",
+       "MS":"91.70",
+       "NDT":"91.41",
+       "Mcal":"3.75",
+       "PB":"39.10",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Torta de Algodón",
+       "MS":"90.77",
+       "NDT":"71.05",
+       "Mcal":"2.94",
+       "PB":"29.81",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Leveduras",
+       "MS":"99.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"39.00",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Borra",
+       "MS":"25.80",
+       "NDT":"0.00",
+       "Mcal":"2.78",
+       "PB":"26.30",
+       "TIPO":"CONCENTRADO"
+    },
+    {
+       "Ingrediente":"Bicarbonato de sodio",
+       "MS":"99.00",
+       "NDT":"0.00",
+       "Mcal":"0.00",
+       "PB":"0.00",
+       "TIPO":"CONCENTRADO"
+    }
+ ]

@@ -1,3 +1,5 @@
+import 'package:control_animal_app/src/model/insumo_model.dart';
+import 'package:control_animal_app/src/model/leche_model.dart';
 import 'package:control_animal_app/src/model/rq_model.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +13,8 @@ abstract class PathRq {
       'assets/data/RQ_PROTEINA/RQ_PROTEINA_GANACIA.json';
   static const rqProteinaMantenimiento =
       'assets/data/RQ_PROTEINA/RQ_PROTEINA_MANTENIMIENTO.json';
+  static const rqLeche = 'assets/data/RQ_LECHE.json';
+  static const insumo = 'assets/data/INSUMO.json';
 }
 
 class GlobalController extends GetxController {
@@ -18,28 +22,31 @@ class GlobalController extends GetxController {
   Rx<RqModel> rqEnergiaMantenimiento = RqModel().obs;
   RxList<RqModel> rqProteinaGanacia = List<RqModel>().obs;
   Rx<RqModel> rqProteinaMantenimiento = RqModel().obs;
+  RxList<LecheModel> rqLeche = List<LecheModel>().obs;
+  RxList<InsumoModel> insumo = List<InsumoModel>().obs;
   @override
   void onInit() {
     super.onInit();
-    /* _loadRq(PathRq.rqEnergiaMantenimiento).then((value) {
-      print(value);
-    }); */
     Future.wait([
-      _loadRq(PathRq.rqEnergiaMantenimiento),
-      _loadRq(PathRq.rqEnergiaGanacia),
-      _loadRq(PathRq.rqProteinaMantenimiento),
-      _loadRq(PathRq.rqProteinaGanancia),
+      _loadRq(PathRq.rqEnergiaMantenimiento, rqModelFromJson),
+      _loadRq(PathRq.rqEnergiaGanacia, rqModelFromJson),
+      _loadRq(PathRq.rqProteinaMantenimiento, rqModelFromJson),
+      _loadRq(PathRq.rqProteinaGanancia, rqModelFromJson),
+      _loadRq(PathRq.rqLeche, lecheModelFromJson),
+      _loadRq(PathRq.insumo, insumoModelFromJson),
     ]).then((value) {
       this.rqEnergiaMantenimiento.value = value[0];
       this.rqEnergiaGanacia.addAll(value[1]);
       this.rqProteinaMantenimiento.value = value[2];
       this.rqProteinaGanacia.addAll(value[3]);
+      this.rqLeche.addAll(value[4]);
+      this.insumo.addAll(value[5]);
     });
   }
 
-  Future<dynamic> _loadRq(String path) async {
+  Future<dynamic> _loadRq(String path, Function(String value) fromJson) async {
     final rqString = await rootBundle.loadString(path);
-    final List<RqModel> rqData = rqModelFromJson(rqString);
+    final rqData = fromJson(rqString);
     return rqData.length == 1 ? rqData[0] : rqData;
   }
 }
