@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
 List<InsumoModel> insumoModelFromJson(String str) {
   final jsonData = json.decode(str);
   return new List<InsumoModel>.from(
@@ -17,25 +19,32 @@ class InsumoModel {
   double ndt;
   double mcal;
   double pb;
+  double kgDia;
+  double precioKg;
   String tipo;
+  String uuid;
 
-  InsumoModel({
-    this.ingrediente,
-    this.ms,
-    this.ndt,
-    this.mcal,
-    this.pb,
-    this.tipo,
-  });
+  InsumoModel(
+      {this.ingrediente,
+      this.ms,
+      this.ndt,
+      this.mcal,
+      this.pb,
+      this.tipo,
+      this.precioKg,
+      this.kgDia,
+      this.uuid});
 
   factory InsumoModel.fromJson(Map<String, dynamic> json) => new InsumoModel(
-        ingrediente: json["Ingrediente"],
-        ms: double.parse(json["MS"]),
-        ndt: double.parse(json["NDT"]),
-        mcal: double.parse(json["Mcal"]),
-        pb: double.parse(json["PB"]),
-        tipo: json["TIPO"],
-      );
+      ingrediente: json["Ingrediente"],
+      ms: double.parse(json["MS"]),
+      ndt: double.parse(json["NDT"]),
+      mcal: double.parse(json["Mcal"]),
+      pb: double.parse(json["PB"]),
+      tipo: json["TIPO"],
+      precioKg: 0.0,
+      kgDia: 0.0,
+      uuid: UniqueKey().toString());
 
   Map<String, dynamic> toJson() => {
         "Ingrediente": ingrediente,
@@ -45,4 +54,11 @@ class InsumoModel {
         "PB": pb,
         "TIPO": tipo,
       };
+  double precioTotal() {
+    return this.kgDia * this.precioKg;
+  }
+
+  double inclusion(double subTotal) {
+    return (this.kgDia / subTotal) * 100;
+  }
 }

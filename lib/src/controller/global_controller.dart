@@ -3,8 +3,11 @@ import 'package:control_animal_app/src/model/leche_model.dart';
 import 'package:control_animal_app/src/model/rq_model.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
+export 'package:control_animal_app/src/model/insumo_model.dart';
+export 'package:control_animal_app/src/model/leche_model.dart';
+export 'package:control_animal_app/src/model/rq_model.dart';
 
-abstract class PathRq {
+abstract class _PathRq {
   static const rqEnergiaGanacia =
       'assets/data/RQ_ENERGIA/RQ_ENERGIA_GANANCIA.json';
   static const rqEnergiaMantenimiento =
@@ -28,12 +31,12 @@ class GlobalController extends GetxController {
   void onInit() {
     super.onInit();
     Future.wait([
-      _loadRq(PathRq.rqEnergiaMantenimiento, rqModelFromJson),
-      _loadRq(PathRq.rqEnergiaGanacia, rqModelFromJson),
-      _loadRq(PathRq.rqProteinaMantenimiento, rqModelFromJson),
-      _loadRq(PathRq.rqProteinaGanancia, rqModelFromJson),
-      _loadRq(PathRq.rqLeche, lecheModelFromJson),
-      _loadRq(PathRq.insumo, insumoModelFromJson),
+      _loadRq(_PathRq.rqEnergiaMantenimiento, rqModelFromJson),
+      _loadRq(_PathRq.rqEnergiaGanacia, rqModelFromJson),
+      _loadRq(_PathRq.rqProteinaMantenimiento, rqModelFromJson),
+      _loadRq(_PathRq.rqProteinaGanancia, rqModelFromJson),
+      _loadRq(_PathRq.rqLeche, lecheModelFromJson),
+      _loadRq(_PathRq.insumo, insumoModelFromJson),
     ]).then((value) {
       this.rqEnergiaMantenimiento.value = value[0];
       this.rqEnergiaGanacia.addAll(value[1]);

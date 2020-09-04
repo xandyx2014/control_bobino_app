@@ -1,13 +1,15 @@
+import 'package:control_animal_app/src/controller/global_controller.dart';
+import 'package:control_animal_app/src/controller/insumo_formulacion_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class InsumoFormulacionWidget extends StatelessWidget {
-  const InsumoFormulacionWidget({
-    Key key,
-  }) : super(key: key);
+  final Function(InsumoModel insumo) onTap;
+  const InsumoFormulacionWidget({Key key, @required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final styleText = TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold);
     return Column(
       children: [
         Container(
@@ -23,141 +25,165 @@ class InsumoFormulacionWidget extends StatelessWidget {
             ),
           ),
         ),
-        FittedBox(
-          child: DataTable(
-            dataRowHeight: 80.0,
-            headingRowHeight: 80.0,
-            columns: [
-              DataColumn(
-                  label: Text(
-                'Insumo',
-                style: styleText,
-              )),
-              DataColumn(
-                  label: Text(
-                '% Ms',
-                style: styleText,
-              )),
-              DataColumn(
-                  label: Text(
-                '% NDT',
-                style: styleText,
-              )),
-              DataColumn(
-                  label: Text(
-                'EM (Mcal/Kg)',
-                style: styleText,
-              )),
-              DataColumn(
-                  label: Text(
-                '% PB',
-                style: styleText,
-              )),
-            ],
-            rows: [
-              DataRow(
-                cells: [
-                  DataCell(Text(
-                    'sulfato de Zn',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '98.0',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '78.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '56.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '42.00',
-                    style: styleText,
-                  )),
-                ],
-              ),
-              DataRow(
-                cells: [
-                  DataCell(Text(
-                    'Avena',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '98.0',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '78.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '56.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '42.00',
-                    style: styleText,
-                  )),
-                ],
-              ),
-              DataRow(
-                cells: [
-                  DataCell(Text(
-                    'Comida 2',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '98.0',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '78.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '56.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '42.00',
-                    style: styleText,
-                  )),
-                ],
-              ),
-              DataRow(
-                cells: [
-                  DataCell(Text(
-                    'Comida 3',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '98.0',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '78.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '56.00',
-                    style: styleText,
-                  )),
-                  DataCell(Text(
-                    '42.00',
-                    style: styleText,
-                  )),
-                ],
-              ),
-            ],
-          ),
+        ListInsumo(
+          onTap: this.onTap,
         ),
         SizedBox(
           height: 20.0,
         ),
       ],
+    );
+  }
+}
+
+class ListInsumo extends StatelessWidget {
+  final Function(InsumoModel insumo) onTap;
+  const ListInsumo({Key key, this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final globalController = Get.find<GlobalController>();
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(7.0),
+          child: Row(
+            children: [
+              Text(
+                'Insumo',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Spacer(),
+              Text(
+                'Ms',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Spacer(),
+              Text(
+                'Mdt',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Spacer(),
+              Text(
+                'Mcal',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Spacer(),
+              Text(
+                'Pb',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Spacer(),
+              Text(
+                'Accion',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        GetBuilder<InsumoFormulacionController>(
+          init: InsumoFormulacionController(),
+          builder: (_) => Container(
+            height: Get.height * 0.30,
+            child: Obx(() => ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return Divider();
+                  },
+                  itemCount: _.insumos.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final InsumoModel insumoModel = _.insumos.elementAt(index);
+                    return InsumoItem(
+                      insumo: insumoModel,
+                      index: index,
+                      onDelete: (value) {
+                        print(value);
+                        _.deleteByIndex(value);
+                      },
+                    );
+                  },
+                )),
+          ),
+        ),
+        SizedBox(
+          height: 20.0,
+        ),
+        FlatButton.icon(
+          onPressed: () {
+            showModalBottomSheet(
+                context: Get.context,
+                builder: (context) {
+                  return Container(
+                    height: Get.height * 0.45,
+                    child: ListView.builder(
+                        itemCount: globalController.insumo.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          final InsumoModel insumo =
+                              globalController.insumo[index];
+                          return ListTile(
+                            onTap: () {
+                              insumo.uuid = UniqueKey().toString();
+                              this.onTap(insumo);
+                              Navigator.of(Get.context).pop();
+                            },
+                            title: Text('${insumo.ingrediente}'),
+                            subtitle: Text('Tipo : ${insumo.tipo}'),
+                            trailing: Icon(Icons.add_box),
+                          );
+                        }),
+                  );
+                });
+          },
+          icon: Icon(
+            Icons.add,
+            color: Colors.blue,
+          ),
+          label: Text('Adicionar insumo', style: TextStyle(color: Colors.blue)),
+        )
+      ],
+    );
+  }
+}
+
+class InsumoItem extends StatelessWidget {
+  final int index;
+  final InsumoModel insumo;
+  final Function(int index) onDelete;
+
+  const InsumoItem({Key key, this.insumo, this.onDelete, this.index})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final insumoTextLenght = insumo.ingrediente.toString().length;
+    final stringvalue = insumoTextLenght >= 9
+        ? '${insumo.ingrediente.substring(0, insumoTextLenght ~/ 2)}..'
+        : insumo.ingrediente.toString();
+    return Container(
+      padding: EdgeInsets.all(7.0),
+      child: Row(
+        children: [
+          Text(stringvalue),
+          Spacer(),
+          Text('${insumo.ms}'),
+          Spacer(),
+          Text('${insumo.ndt}'),
+          Spacer(),
+          Text('${insumo.mcal}'),
+          Spacer(),
+          Text('${insumo.pb}'),
+          Spacer(),
+          IconButton(
+              icon: Icon(
+                Icons.delete,
+                color: Colors.red,
+              ),
+              onPressed: () {
+                this.onDelete(index);
+              })
+        ],
+      ),
     );
   }
 }

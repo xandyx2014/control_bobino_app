@@ -1,3 +1,4 @@
+import 'package:control_animal_app/src/widgets/card_custom_cacule_widget.dart';
 import 'package:control_animal_app/src/widgets/chart_pie_widget.dart';
 import 'package:control_animal_app/src/widgets/insumo_formulacion_widget.dart';
 import 'package:control_animal_app/src/widgets/racion_animal_dia_widget.dart';
@@ -36,10 +37,6 @@ class CalculoEngordePage extends StatelessWidget {
         title: Text('Calculos de ganancia de peso'),
         centerTitle: true,
       ),
-      /* floatingActionButton: FloatingActionButton(onPressed: () {
-        pageController.nextPage(
-            duration: Duration(milliseconds: 800), curve: Curves.easeIn);
-      }), */
       body: Center(
         child: SizedBox(
           height: Get.height * 0.82,
@@ -52,14 +49,16 @@ class CalculoEngordePage extends StatelessWidget {
               PageCalcule(
                 child: Center(
                   child: Column(children: [
-                    DatosAnimalLecheria(),
+                    DatosAnimalEngorde(),
                     _buttonNext(),
                   ]),
                 ),
               ),
               PageCalcule(
                 child: Column(children: [
-                  InsumoFormulacionWidget(),
+                  InsumoFormulacionWidget(
+                    onTap: (value) {},
+                  ),
                   _buttonNext(),
                 ]),
               ),
@@ -84,25 +83,8 @@ class CalculoEngordePage extends StatelessWidget {
   }
 }
 
-class PageCalcule extends StatelessWidget {
-  final Widget child;
-
-  const PageCalcule({Key key, this.child}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5.0),
-      child: Card(
-        elevation: 15,
-        child: child,
-      ),
-    );
-  }
-}
-
-class DatosAnimalLecheria extends StatelessWidget {
-  const DatosAnimalLecheria({
+class DatosAnimalEngorde extends StatelessWidget {
+  const DatosAnimalEngorde({
     Key key,
   }) : super(key: key);
 

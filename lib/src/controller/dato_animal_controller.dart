@@ -1,0 +1,14 @@
+import 'package:get/get.dart';
+
+class DatoAnimalController extends GetxController {
+  RxDouble peso = 200.0.obs;
+  RxDouble kgLeche = 0.0.obs;
+  RxDouble materiaGrasa = 3.0.obs;
+  @override
+  Future<void> onClose() {
+    return super.onClose();
+    /*  this.peso.value = 200.0;
+    this.kgLeche.value = 0.0;
+    this.materiaGrasa.value = 3.0; */
+  }
+}
