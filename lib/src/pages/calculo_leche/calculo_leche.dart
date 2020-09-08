@@ -34,74 +34,82 @@ class CalculoLechePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      appBar: AppBar(
-        title: Text('Calculos de Leche'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: SizedBox(
-          height: Get.height * 0.82,
-          width: Get.width,
-          child: PageView(
-            controller: pageController,
-            // physics: NeverScrollableScrollPhysics(),
-            reverse: false,
-            children: [
-              PageCalcule(
-                child: Center(
-                  child: Column(children: [
-                    DatosAnimalLecheria(),
-                    _buttonNext(),
-                  ]),
-                ),
+    return GetBuilder<InsumoFormulacionController>(
+        init: InsumoFormulacionController(),
+        builder: (_) => Scaffold(
+              resizeToAvoidBottomPadding: false,
+              appBar: AppBar(
+                title: Text('Calculos de Leche'),
+                centerTitle: true,
               ),
-              PageCalcule(
-                child: Column(children: [
-                  GetBuilder<InsumoFormulacionController>(
-                    init: InsumoFormulacionController(),
-                    builder: (_) => InsumoFormulacionWidget(
-                      onTap: (value) {
-                        _.insumos.add(value);
-                        print(_.getSubTotal(TipoInsumo.concentrado, _.insumos));
-                      },
-                    ),
+              body: Center(
+                child: SizedBox(
+                  height: Get.height * 0.82,
+                  width: Get.width,
+                  child: PageView(
+                    controller: pageController,
+                    // physics: NeverScrollableScrollPhysics(),
+                    reverse: false,
+                    children: [
+                      PageCalcule(
+                        child: Center(
+                          child: Column(children: [
+                            DatosAnimalLecheria(),
+                            _buttonNext(),
+                          ]),
+                        ),
+                      ),
+                      PageCalcule(
+                        child: Column(children: [
+                          InsumoFormulacionWidget(
+                            onTap: (value) {
+                              _.insumos.add(value);
+                              print(_.getSubTotal(
+                                  TipoInsumo.concentrado, _.insumos));
+                            },
+                          ),
+                          _buttonNext(),
+                        ]),
+                      ),
+                      PageCalcule(
+                        child: Column(
+                          children: [
+                            InsumoFormulacionData(),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            _buttonNext(),
+                          ],
+                        ),
+                      ),
+                      PageCalcule(
+                        child: Column(
+                          children: [
+                            RacionAnimalWidget(
+                              insumos: _.insumos,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            _buttonNext(),
+                          ],
+                        ),
+                      ),
+                      PageCalcule(
+                        child: Column(
+                          children: [
+                            ChartInsumoFormulacion(
+                              insumos: _.insumos,
+                            ),
+                            _buttonNext(),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  _buttonNext(),
-                ]),
-              ),
-              PageCalcule(
-                child: Column(
-                  children: [
-                    InsumoFormulacionData(),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    _buttonNext(),
-                  ],
                 ),
               ),
-              PageCalcule(
-                child: Column(
-                  children: [
-                    ChartInsumoFormulacion(),
-                    _buttonNext(),
-                  ],
-                ),
-              ),
-              PageCalcule(
-                child: Column(
-                  children: [
-                    RacionAnimalWidget(),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+            ));
   }
 }
 

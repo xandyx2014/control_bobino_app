@@ -61,4 +61,16 @@ class InsumoModel {
   double inclusion(double subTotal) {
     return (this.kgDia / subTotal) * 100;
   }
+
+  double getPrecioTotal() {
+    return this.kgDia * this.precioKg;
+  }
+
+  double getInclusion(double subTotal) {
+    return this.kgDia / subTotal;
+  }
+
+  double getKgTn(double subTotal) {
+    return this.getInclusion(subTotal) * 1000;
+  }
 }

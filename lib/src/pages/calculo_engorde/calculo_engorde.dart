@@ -1,7 +1,7 @@
 import 'package:control_animal_app/src/widgets/card_custom_cacule_widget.dart';
-import 'package:control_animal_app/src/widgets/chart_pie_widget.dart';
+
 import 'package:control_animal_app/src/widgets/insumo_formulacion_widget.dart';
-import 'package:control_animal_app/src/widgets/racion_animal_dia_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,19 +62,19 @@ class CalculoEngordePage extends StatelessWidget {
                   _buttonNext(),
                 ]),
               ),
-              PageCalcule(
+              /* PageCalcule(
                 child: Column(children: [
                   ChartInsumoFormulacion(),
                   _buttonNext(),
                 ]),
-              ),
-              PageCalcule(
+              ), */
+              /*  PageCalcule(
                 child: Column(
                   children: [
                     RacionAnimalWidget(),
                   ],
                 ),
-              )
+              ) */
             ],
           ),
         ),

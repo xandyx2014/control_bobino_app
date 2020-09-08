@@ -97,7 +97,6 @@ class ListInsumo extends StatelessWidget {
                       insumo: insumoModel,
                       index: index,
                       onDelete: (value) {
-                        print(value);
                         _.deleteByIndex(value);
                       },
                     );

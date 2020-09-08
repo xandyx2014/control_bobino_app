@@ -59,12 +59,10 @@ class InsumoFormulacionData extends StatelessWidget {
                             onChangeKgDia: (value) {
                               insumoModel.kgDia = value;
                               _.setInsumo(insumoModel, index);
-                              print(_.insumos[index].kgDia);
                             },
                             onChangePrecioKg: (value) {
                               insumoModel.precioKg = value;
                               _.setInsumo(insumoModel, index);
-                              print(_.insumos[index].precioKg);
                             },
                           );
                         }))),

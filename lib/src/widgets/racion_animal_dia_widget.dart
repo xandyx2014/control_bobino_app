@@ -1,11 +1,17 @@
+import 'package:control_animal_app/src/controller/global_controller.dart';
+import 'package:control_animal_app/src/widgets/title_card_widget.dart';
+import 'package:control_animal_app/src/controller/insumo_formulacion_controller.dart';
 import 'package:flutter/material.dart';
 
-class RacionAnimalWidget extends StatelessWidget {
-  const RacionAnimalWidget({Key key}) : super(key: key);
+class RacionAnimalWidget extends StatelessWidget with RacionAnimalDia {
+  final List<InsumoModel> insumos;
+  const RacionAnimalWidget({Key key, @required this.insumos}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final double subTotalConcentrado = this.getSubTotal('CONCENTRADO', insumos);
+    final double subTotalForraje = this.getSubTotal('FORRAJE', insumos);
     return Column(
       children: [
         ListTile(
@@ -13,26 +19,68 @@ class RacionAnimalWidget extends StatelessWidget {
           subtitle: Text('resultados'),
         ),
         SizedBox(
-          height: size.height * 0.38,
-          child: PageView.builder(
-            controller: PageController(initialPage: 0, viewportFraction: 0.8),
-            itemCount: 6,
+          height: size.height * 0.30,
+          child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: insumos.length,
             itemBuilder: (context, index) {
+              final InsumoModel insumoModel = insumos[index];
+
               return Container(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(10.0),
                 child: Container(
+                  // height: 300.0,
+                  padding: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
                     children: [
-                      TitleCard(property: 'Insumo', value: 'Lorem Ipsum'),
-                      TitleCard(property: 'Kg/dia', value: '1.0'),
-                      TitleCard(property: 'Precio/Kg', value: '1.0'),
-                      TitleCard(property: 'Precio total', value: '1.0'),
-                      TitleCard(property: '% Inclusion', value: '1.0'),
-                      TitleCard(property: 'Kg/Tn', value: '000.00'),
+                      TitleCard(
+                        property: 'Insumo',
+                        value: insumoModel.ingrediente,
+                      ),
+                      TitleCard(
+                          property: 'Tipo',
+                          value: insumoModel.tipo.toLowerCase()),
+                      TitleCard(
+                          property: 'Kg/dia', value: '${insumoModel.kgDia}'),
+                      TitleCard(
+                          property: 'Precio/Kg',
+                          value: '${insumoModel.precioKg}'),
+                      TitleCard(
+                          property: 'Precio total',
+                          value:
+                              insumoModel.getPrecioTotal().toStringAsFixed(2)),
+                      if (insumoModel.tipo == 'FORRAJE')
+                        TitleCard(
+                          property: '% Inclusion',
+                          value: insumoModel
+                              .getInclusion(subTotalForraje)
+                              .toStringAsFixed(2),
+                        ),
+                      if (insumoModel.tipo == 'FORRAJE')
+                        TitleCard(
+                          property: 'Kg/Tn',
+                          value: insumoModel
+                              .getKgTn(subTotalForraje)
+                              .toStringAsFixed(2),
+                        ),
+                      if (insumoModel.tipo == 'CONCENTRADO')
+                        TitleCard(
+                          property: '% Inclusion',
+                          value: insumoModel
+                              .getInclusion(subTotalConcentrado)
+                              .toStringAsFixed(2),
+                        ),
+                      if (insumoModel.tipo == 'CONCENTRADO')
+                        TitleCard(
+                          property: 'Kg/Tn',
+                          value: insumoModel
+                              .getKgTn(subTotalConcentrado)
+                              .toStringAsFixed(2),
+                        ),
                     ],
                   ),
                 ),
@@ -42,62 +90,30 @@ class RacionAnimalWidget extends StatelessWidget {
         ),
         TitleCard(
           property: 'SubTotal Concentrado',
-          value: '00.0',
+          value: subTotalConcentrado.toStringAsFixed(2),
           textColor: Colors.black,
         ),
         TitleCard(
           property: 'SubTotal Forraje',
-          value: '00.0',
+          value: subTotalForraje.toStringAsFixed(2),
           textColor: Colors.black,
         ),
         TitleCard(
           property: 'Total KG/DIA TMR',
-          value: '00.0',
+          value: this.getTotalKgDia(insumos).toStringAsFixed(2),
           textColor: Colors.black,
         ),
         TitleCard(
           property: 'Precio total',
-          value: '00.0',
+          value: this.getPrecioTotal(insumos).toStringAsFixed(2),
           textColor: Colors.black,
         ),
         TitleCard(
           property: 'Precio Tn',
-          value: '00.0',
+          value: this.getPrecioTotalTn(insumos).toStringAsFixed(2),
           textColor: Colors.black,
         ),
       ],
-    );
-  }
-}
-
-class TitleCard extends StatelessWidget {
-  final String property;
-  final String value;
-  final Color textColor;
-
-  const TitleCard(
-      {Key key,
-      @required this.property,
-      @required this.value,
-      this.textColor = Colors.white})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      child: Row(
-        children: [
-          Text(
-            '$property :',
-            style: TextStyle(color: textColor),
-          ),
-          Spacer(),
-          Text(
-            '$value',
-            style: TextStyle(color: textColor),
-          )
-        ],
-      ),
     );
   }
 }

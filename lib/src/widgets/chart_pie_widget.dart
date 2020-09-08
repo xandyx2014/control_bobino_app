@@ -1,11 +1,21 @@
+import 'package:control_animal_app/src/controller/global_controller.dart';
+import 'package:control_animal_app/src/controller/insumo_formulacion_controller.dart';
 import 'package:flutter/material.dart';
 import 'indicator_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-class ChartInsumoFormulacion extends StatelessWidget {
-  const ChartInsumoFormulacion({Key key}) : super(key: key);
+class ChartInsumoFormulacion extends StatelessWidget with RequerimientoAnimal {
+  final List<InsumoModel> insumos;
+  const ChartInsumoFormulacion({Key key, @required this.insumos})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final Map<String, double> porcentajes = this.getPorcentajes(insumos);
+    final double forrajePorcentaje =
+        double.parse(porcentajes['forraje'].toStringAsFixed(2));
+    final double concentradoPorcentaje =
+        double.parse(porcentajes['concentrado'].toStringAsFixed(2));
+    print('$forrajePorcentaje $concentradoPorcentaje');
     return AspectRatio(
         aspectRatio: 1.0,
         child: Column(
@@ -30,23 +40,15 @@ class ChartInsumoFormulacion extends StatelessWidget {
                     aspectRatio: 1,
                     child: PieChart(
                       PieChartData(
-                          pieTouchData:
-                              PieTouchData(touchCallback: (pieTouchResponse) {
-                            /* setState(() {
-                          if (pieTouchResponse.touchInput is FlLongPressEnd ||
-                              pieTouchResponse.touchInput is FlPanEnd) {
-                            touchedIndex = -1;
-                          } else {
-                            touchedIndex = pieTouchResponse.touchedSectionIndex;
-                          }
-                        }); */
-                          }),
+                          pieTouchData: PieTouchData(
+                              touchCallback: (pieTouchResponse) {}),
                           borderData: FlBorderData(
                             show: false,
                           ),
                           sectionsSpace: 0,
                           centerSpaceRadius: 40,
-                          sections: showingSections()),
+                          sections: showingSections(
+                              forrajePorcentaje, concentradoPorcentaje)),
                     ),
                   ),
                 ),
@@ -82,14 +84,14 @@ class ChartInsumoFormulacion extends StatelessWidget {
         ));
   }
 
-  List<PieChartSectionData> showingSections() {
+  List<PieChartSectionData> showingSections(firts, seconds) {
     final double fontSize = 16;
     final double radius = 50;
     return [
       PieChartSectionData(
         color: const Color(0xff0293ee),
-        value: 40,
-        title: '40%',
+        value: seconds,
+        title: '$seconds %',
         radius: radius,
         titleStyle: TextStyle(
           fontSize: fontSize,
@@ -99,8 +101,8 @@ class ChartInsumoFormulacion extends StatelessWidget {
       ),
       PieChartSectionData(
         color: const Color(0xfff8b250),
-        value: 30,
-        title: '30%',
+        value: firts,
+        title: '$firts%',
         radius: radius,
         titleStyle: TextStyle(
           fontSize: fontSize,
