@@ -204,8 +204,14 @@ class RequerimientoAnimalLeche extends StatelessWidget
       em: insumosNdtTotal,
       pb: insumosPbTotal,
     );
-    print(totalTmr.toString());
-    return RequerimientoAnimal();
+    print(' TotalTrm ${totalTmr.toString()} Excceso ${exceso.toString()}');
+    return RequerimientoAnimal(
+      exceso: exceso,
+      mantenimiento: mantenimiento,
+      produccion: produccion,
+      qrTotal: qrTotal,
+      totalAporte: totalTmr,
+    );
   }
 }
 

@@ -1,8 +1,21 @@
+import 'package:control_animal_app/src/model/requerimiento_animal_model.dart';
 import 'package:control_animal_app/src/widgets/title_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class RequerimientoAnimal extends StatelessWidget {
-  const RequerimientoAnimal({Key key}) : super(key: key);
+  final RequerimientoAnimalModel mantenimiento,
+      produccion,
+      qrTotal,
+      exceso,
+      totalAporte;
+  const RequerimientoAnimal({
+    Key key,
+    @required this.mantenimiento,
+    @required this.produccion,
+    @required this.qrTotal,
+    @required this.exceso,
+    @required this.totalAporte,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +40,28 @@ class RequerimientoAnimal extends StatelessWidget {
                         _ListTitleRequerimiento(
                           tipoRequerimiento: 'Mantenimiento',
                         ),
-                        TitleCard(property: 'Ms(kg)', value: '0asd'),
-                        TitleCard(property: 'Ndt(Kg)', value: '0asd'),
-                        TitleCard(property: 'Em(Mcal)', value: '0asd'),
-                        TitleCard(property: 'Pb(Kg)', value: '0asd'),
+                        Divider(
+                          color: Colors.white,
+                        ),
+                        TitleCard(
+                          property: 'Ms(kg)',
+                          value: mantenimiento.ms.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Ndt(Kg)',
+                          value: mantenimiento.ndt.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Em(Mcal)',
+                          value: mantenimiento.em.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Pb(Kg)',
+                          value: mantenimiento.pb.toStringAsFixed(2),
+                        ),
+                        Divider(
+                          color: Colors.white,
+                        ),
                       ],
                     ),
                   ),
@@ -44,10 +75,28 @@ class RequerimientoAnimal extends StatelessWidget {
                         _ListTitleRequerimiento(
                           tipoRequerimiento: 'Produccion',
                         ),
-                        TitleCard(property: 'Ms(kg)', value: '0asd'),
-                        TitleCard(property: 'Ndt(Kg)', value: '0asd'),
-                        TitleCard(property: 'Em(Mcal)', value: '0asd'),
-                        TitleCard(property: 'Pb(Kg)', value: '0asd'),
+                        Divider(
+                          color: Colors.white,
+                        ),
+                        TitleCard(
+                          property: 'Ms(kg)',
+                          value: produccion.ms.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Ndt(Kg)',
+                          value: produccion.ndt.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Em(Mcal)',
+                          value: produccion.em.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Pb(Kg)',
+                          value: produccion.pb.toStringAsFixed(2),
+                        ),
+                        Divider(
+                          color: Colors.white,
+                        ),
                       ],
                     ),
                   ),
@@ -61,10 +110,28 @@ class RequerimientoAnimal extends StatelessWidget {
                         _ListTitleRequerimiento(
                           tipoRequerimiento: 'Rq total',
                         ),
-                        TitleCard(property: 'Ms(kg)', value: '0asd'),
-                        TitleCard(property: 'Ndt(Kg)', value: '0asd'),
-                        TitleCard(property: 'Em(Mcal)', value: '0asd'),
-                        TitleCard(property: 'Pb(Kg)', value: '0asd'),
+                        Divider(
+                          color: Colors.white,
+                        ),
+                        TitleCard(
+                          property: 'Ms(kg)',
+                          value: qrTotal.ms.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Ndt(Kg)',
+                          value: qrTotal.ndt.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Em(Mcal)',
+                          value: qrTotal.em.toStringAsFixed(2),
+                        ),
+                        TitleCard(
+                          property: 'Pb(Kg)',
+                          value: qrTotal.pb.toStringAsFixed(2),
+                        ),
+                        Divider(
+                          color: Colors.white,
+                        ),
                       ],
                     ),
                   ),
@@ -78,10 +145,63 @@ class RequerimientoAnimal extends StatelessWidget {
                         _ListTitleRequerimiento(
                           tipoRequerimiento: '% Exceso',
                         ),
-                        TitleCard(property: 'Ms(kg)', value: '0asd'),
-                        TitleCard(property: 'Ndt(Kg)', value: '0asd'),
-                        TitleCard(property: 'Em(Mcal)', value: '0asd'),
-                        TitleCard(property: 'Pb(Kg)', value: '0asd'),
+                        Divider(
+                          color: Colors.white,
+                        ),
+                        TitleCard(
+                          property: 'Ms(kg)',
+                          value: '${exceso.ms.toStringAsFixed(2)} %',
+                        ),
+                        TitleCard(
+                          property: 'Ndt(Kg)',
+                          value: '${exceso.ndt.toStringAsFixed(2)} %',
+                        ),
+                        TitleCard(
+                          property: 'Em(Mcal)',
+                          value: '${exceso.em.toStringAsFixed(2)} %',
+                        ),
+                        TitleCard(
+                          property: 'Pb(Kg)',
+                          value: '${exceso.pb.toStringAsFixed(2)} %',
+                        ),
+                        Divider(
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
+                    color: Theme.of(context).primaryColor,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+                        _ListTitleRequerimiento(
+                          tipoRequerimiento: 'Total TMR',
+                        ),
+                        Divider(
+                          color: Colors.white,
+                        ),
+                        TitleCard(
+                          property: 'Ms(kg)',
+                          value: '${totalAporte.ms.toStringAsFixed(2)}',
+                        ),
+                        TitleCard(
+                          property: 'Ndt(Kg)',
+                          value: '${totalAporte.ndt.toStringAsFixed(2)}',
+                        ),
+                        TitleCard(
+                          property: 'Em(Mcal)',
+                          value: '${totalAporte.em.toStringAsFixed(2)}',
+                        ),
+                        TitleCard(
+                          property: 'Pb(Kg)',
+                          value: '${totalAporte.pb.toStringAsFixed(2)}',
+                        ),
+                        Divider(
+                          color: Colors.white,
+                        ),
                       ],
                     ),
                   ),

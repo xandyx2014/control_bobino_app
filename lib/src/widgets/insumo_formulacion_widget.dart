@@ -155,15 +155,17 @@ class InsumoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final insumoTextLenght = insumo.ingrediente.toString().length;
-    final stringvalue = insumoTextLenght >= 9
-        ? '${insumo.ingrediente.substring(0, insumoTextLenght ~/ 2)}..'
-        : insumo.ingrediente.toString();
     return Container(
       padding: EdgeInsets.all(7.0),
       child: Row(
         children: [
-          Text(stringvalue),
+          SizedBox(
+            width: Get.width * 0.13,
+            child: Text(
+              '${insumo.ingrediente}',
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
           Spacer(),
           Text('${insumo.ms}'),
           Spacer(),

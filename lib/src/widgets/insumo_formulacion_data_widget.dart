@@ -88,14 +88,15 @@ class _DataInsumo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleTextlenght = title.toString().length;
-    final cutString = titleTextlenght >= 14
-        ? '${title.substring(0, titleTextlenght ~/ 2)}..'
-        : title;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text(cutString),
+        SizedBox(
+            width: Get.width * 0.20,
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+            )),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(

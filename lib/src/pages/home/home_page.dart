@@ -92,12 +92,19 @@ class _HomePageState extends State<HomePage> {
         children: [
           Stack(
             children: [
-              Image.asset(
-                'assets/menu.jpeg',
+              FadeInImage(
+                placeholder: AssetImage('assets/loading.gif'),
+                image: AssetImage('assets/menu.jpeg'),
                 height: MediaQuery.of(context).size.height * 0.40,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
+              /*  Image.asset(
+                'assets/menu.jpeg',
+                height: MediaQuery.of(context).size.height * 0.40,
+                width: double.maxFinite,
+                fit: BoxFit.cover,
+              ), */
               Positioned(
                 top: 0,
                 left: 10.0,
