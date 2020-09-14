@@ -1,10 +1,11 @@
 import 'package:control_animal_app/src/controller/global_controller.dart';
-import 'package:control_animal_app/src/controller/insumo_formulacion_controller.dart';
+import 'package:control_animal_app/src/mixin/requerimiento_animal_mixin.dart';
 import 'package:flutter/material.dart';
 import 'indicator_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-class ChartInsumoFormulacion extends StatelessWidget with RequerimientoAnimal {
+class ChartInsumoFormulacion extends StatelessWidget
+    with CalculoRequerimientoAnimal {
   final List<InsumoModel> insumos;
   const ChartInsumoFormulacion({Key key, @required this.insumos})
       : super(key: key);

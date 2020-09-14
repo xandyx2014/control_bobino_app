@@ -1,6 +1,6 @@
 import 'package:control_animal_app/src/controller/global_controller.dart';
+import 'package:control_animal_app/src/mixin/racion_animal_dia_mixin.dart';
 import 'package:control_animal_app/src/widgets/title_card_widget.dart';
-import 'package:control_animal_app/src/controller/insumo_formulacion_controller.dart';
 import 'package:flutter/material.dart';
 
 class RacionAnimalWidget extends StatelessWidget with RacionAnimalDia {
