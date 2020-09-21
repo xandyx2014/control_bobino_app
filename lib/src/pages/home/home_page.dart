@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     final _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: _scaffoldKey,
+      resizeToAvoidBottomPadding: true,
       drawer: DrawerWidget(),
       /* appBar: AppBar(
         leading: IconButton(

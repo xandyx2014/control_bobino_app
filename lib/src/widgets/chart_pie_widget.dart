@@ -11,12 +11,11 @@ class ChartInsumoFormulacion extends StatelessWidget
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final Map<String, double> porcentajes = this.getPorcentajes(insumos);
+    final Map<String, double> porcentajes = this.getBalance(insumos);
     final double forrajePorcentaje =
         double.parse(porcentajes['forraje'].toStringAsFixed(2));
     final double concentradoPorcentaje =
         double.parse(porcentajes['concentrado'].toStringAsFixed(2));
-    print('$forrajePorcentaje $concentradoPorcentaje');
     return AspectRatio(
         aspectRatio: 1.0,
         child: Column(

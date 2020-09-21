@@ -153,4 +153,70 @@ class RqModel {
         "500": the500,
         "GMD": gmd ?? '0',
       };
+  double getValue(String value) {
+    switch (value) {
+      case '200.0':
+        return this.the200;
+      case '210.0':
+        return this.the210;
+      case '220.0':
+        return this.the220;
+      case '230.0':
+        return this.the230;
+      case '240.0':
+        return this.the240;
+      case '250.0':
+        return this.the250;
+      case '260.0':
+        return this.the260;
+      case '270.0':
+        return this.the270;
+      case '280.0':
+        return this.the280;
+      case '290.0':
+        return this.the290;
+      case '300.0':
+        return this.the300;
+      case '310.0':
+        return this.the310;
+      case '320.0':
+        return this.the320;
+      case '330.0':
+        return this.the330;
+      case '340.0':
+        return this.the340;
+      case '350.0':
+        return this.the350;
+      case '360.0':
+        return this.the360;
+      case '370.0':
+        return this.the370;
+      case '380.0':
+        return this.the380;
+      case '390.0':
+        return this.the390;
+      case '400.0':
+        return this.the400;
+      case '410.0':
+        return this.the410;
+      case '420.0':
+        return this.the420;
+      case '430.0':
+        return this.the430;
+      case '440.0':
+        return this.the440;
+      case '450.0':
+        return this.the450;
+      case '460.0':
+        return this.the460;
+      case '480.0':
+        return this.the480;
+      case '490.0':
+        return this.the490;
+      case '500.0':
+        return this.the500;
+      default:
+        return 0.00;
+    }
+  }
 }

@@ -54,7 +54,7 @@ class CalculoLechePage extends StatelessWidget {
                   width: Get.width,
                   child: PageView(
                     controller: pageController,
-                    // physics: NeverScrollableScrollPhysics(),
+                    physics: NeverScrollableScrollPhysics(),
                     reverse: false,
                     children: [
                       PageCalcule(
@@ -70,8 +70,6 @@ class CalculoLechePage extends StatelessWidget {
                           InsumoFormulacionWidget(
                             onTap: (value) {
                               _.insumos.add(value);
-                              print(_.getSubTotal(
-                                  TipoInsumo.concentrado, _.insumos));
                             },
                           ),
                           _buttonNext(),
@@ -154,7 +152,7 @@ class RequerimientoAnimalLeche extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final resultadosInsumo = this.getResultados(insumos);
-    print(resultadosInsumo);
+    final balanceTotal = this.getBalance(insumos);
     final insumosMsTotal = resultadosInsumo['ms'];
     final insumosNdtTotal = resultadosInsumo['ndt'];
     final insumosEmTotal = resultadosInsumo['em'];
@@ -204,13 +202,14 @@ class RequerimientoAnimalLeche extends StatelessWidget
       em: insumosNdtTotal,
       pb: insumosPbTotal,
     );
-    print(' TotalTrm ${totalTmr.toString()} Excceso ${exceso.toString()}');
     return RequerimientoAnimal(
       exceso: exceso,
       mantenimiento: mantenimiento,
       produccion: produccion,
       qrTotal: qrTotal,
       totalAporte: totalTmr,
+      balanceForraje: balanceTotal['forraje'],
+      balanceConcentrado: balanceTotal['concentrado'],
     );
   }
 }
@@ -260,8 +259,8 @@ class DatosAnimalLecheria extends StatelessWidget {
                     label: '${datoAnimalCtrl.peso.value}',
                     value: datoAnimalCtrl.peso.value,
                     min: 200.0,
-                    max: 500.0,
-                    divisions: 30,
+                    max: 700.0,
+                    divisions: 50,
                     onChanged: (value) {
                       datoAnimalCtrl.peso.value = value;
                     },

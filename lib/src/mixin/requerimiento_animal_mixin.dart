@@ -20,6 +20,23 @@ class CalculoRequerimientoAnimal {
     };
   }
 
+  Map<String, double> getBalance(List<InsumoModel> insumoList) {
+    double msForraje = 0.0, msConcentrado = 0.00, msTotal = 0.0;
+    insumoList.forEach((element) {
+      msTotal += (element.ms * element.kgDia) / 100;
+      if (element.tipo == 'FORRAJE') {
+        msForraje += (element.ms * element.kgDia) / 100;
+      }
+      if (element.tipo == 'CONCENTRADO') {
+        msConcentrado += (element.ms * element.kgDia) / 100;
+      }
+    });
+    return {
+      'concentrado': msConcentrado / msTotal,
+      'forraje': msForraje / msTotal
+    };
+  }
+
   Map<String, double> getResultados(List<InsumoModel> insumolist) {
     double ms = 0.0, ndt = 0.0, em = 0.0, pb = 0.00;
     insumolist.forEach((element) {

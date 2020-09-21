@@ -8,17 +8,23 @@ class RequerimientoAnimal extends StatelessWidget {
       qrTotal,
       exceso,
       totalAporte;
-  const RequerimientoAnimal({
-    Key key,
-    @required this.mantenimiento,
-    @required this.produccion,
-    @required this.qrTotal,
-    @required this.exceso,
-    @required this.totalAporte,
-  }) : super(key: key);
+  final double balanceConcentrado;
+  final double balanceForraje;
+  const RequerimientoAnimal(
+      {Key key,
+      @required this.mantenimiento,
+      @required this.produccion,
+      @required this.qrTotal,
+      @required this.exceso,
+      @required this.totalAporte,
+      @required this.balanceConcentrado,
+      @required this.balanceForraje})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final concentrado = balanceConcentrado * 100;
+    final forraje = balanceForraje * 100;
     return Container(
       child: SizedBox(
         child: Column(
@@ -206,6 +212,23 @@ class RequerimientoAnimal extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+            TitleCard(
+              property: 'Concentrado',
+              value: '${concentrado.toStringAsFixed(2)} %',
+              textColor: Colors.black,
+            ),
+            TitleCard(
+              property: 'Forraje',
+              value: '${forraje.toStringAsFixed(2)} %',
+              textColor: Colors.black,
+            ),
+            FlatButton(
+              onPressed: () {},
+              child: Text(
+                'Guardar archivo',
+                style: TextStyle(color: Colors.blue),
               ),
             )
           ],
