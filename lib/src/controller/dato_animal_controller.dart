@@ -4,6 +4,7 @@ class DatoAnimalController extends GetxController {
   RxDouble peso = 200.0.obs;
   RxDouble kgLeche = 0.0.obs;
   RxDouble materiaGrasa = 3.0.obs;
+  RxDouble gmd = 0.50.obs;
   @override
   Future<void> onClose() {
     return super.onClose();
