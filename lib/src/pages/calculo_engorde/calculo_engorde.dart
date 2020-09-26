@@ -214,6 +214,7 @@ class _DatosAnimalEngorde extends StatelessWidget {
   Widget build(BuildContext context) {
     final datoAnimalCtrl = Get.find<DatoAnimalController>();
     datoAnimalCtrl.loadingData();
+    datoAnimalCtrl.tipo.value = 'ENGORDE';
     return Form(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

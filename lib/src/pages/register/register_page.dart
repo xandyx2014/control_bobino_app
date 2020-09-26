@@ -1,4 +1,6 @@
+import 'package:control_animal_app/src/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -99,82 +101,139 @@ class _TitleForm extends StatelessWidget {
   }
 }
 
-class _FormData extends StatelessWidget {
+class _FormData extends StatefulWidget {
   const _FormData({
     Key key,
   }) : super(key: key);
 
   @override
+  __FormDataState createState() => __FormDataState();
+}
+
+class __FormDataState extends State<_FormData> {
+  final _formKey = GlobalKey<FormState>();
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-          child: TextField(
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(fontSize: 18),
-            decoration: InputDecoration(
-              hintText: 'Usuario',
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey)),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-          child: TextField(
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(fontSize: 18),
-            decoration: InputDecoration(
-              hintText: 'Nombre completo',
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey)),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-          child: TextField(
-            obscureText: true,
-            style: TextStyle(fontSize: 18),
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              hintText: 'Contraseña',
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey)),
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.center,
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.75,
-            margin: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            child: MaterialButton(
-              onPressed: () {},
-              child: Text(
-                'Registrarse',
-                style: TextStyle(color: Colors.white),
+    return GetBuilder<AuthController>(
+      init: AuthController(),
+      builder: (_) {
+        return Column(
+          children: [
+            Obx(() {
+              if (_.isOk.value) {
+                return LinearProgressIndicator();
+              }
+              return SizedBox.shrink();
+            }),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                    child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      onSaved: (value) {
+                        _.user.username = value;
+                      },
+                      validator: (value) {
+                        if (value.isEmpty) return 'Este campo es necesario';
+                        return null;
+                      },
+                      style: TextStyle(fontSize: 18),
+                      decoration: InputDecoration(
+                        hintText: 'Usuario',
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                    child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      onSaved: (value) {
+                        _.user.nombre = value;
+                      },
+                      validator: (value) {
+                        if (value.isEmpty) return 'Este campo es necesario';
+                        return null;
+                      },
+                      style: TextStyle(fontSize: 18),
+                      decoration: InputDecoration(
+                        hintText: 'Nombre completo',
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                    child: TextFormField(
+                      obscureText: true,
+                      style: TextStyle(fontSize: 18),
+                      keyboardType: TextInputType.text,
+                      onSaved: (value) {
+                        _.user.password = value;
+                      },
+                      validator: (value) {
+                        if (value.isEmpty) return 'Este campo es necesario';
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        hintText: 'Contraseña',
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey)),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      margin: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      child: Obx(() => IgnorePointer(
+                            ignoring: _.isOk.value,
+                            child: MaterialButton(
+                              onPressed: () {
+                                if (_formKey.currentState.validate()) {
+                                  _formKey.currentState.save();
+                                  _.register();
+                                }
+                              },
+                              child: Text(
+                                'Registrarse',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          )),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ),
-        ),
-      ],
+            )
+          ],
+        );
+      },
     );
   }
 }

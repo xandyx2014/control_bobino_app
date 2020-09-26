@@ -223,6 +223,7 @@ class DatosAnimalLecheria extends StatelessWidget {
   Widget build(BuildContext context) {
     final datoAnimalCtrl = Get.find<DatoAnimalController>();
     datoAnimalCtrl.loadingData();
+    datoAnimalCtrl.tipo.value = 'LECHERIA';
     return Form(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -263,6 +264,7 @@ class DatosAnimalLecheria extends StatelessWidget {
                     divisions: 50,
                     onChanged: (value) {
                       datoAnimalCtrl.peso.value = value;
+                      datoAnimalCtrl.calculo.add('peso_kg', value);
                     },
                   ),
                 ),
@@ -281,6 +283,8 @@ class DatosAnimalLecheria extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
                 onChanged: (value) {
                   datoAnimalCtrl.kgLeche.value = double.parse(value);
+                  datoAnimalCtrl.calculo
+                      .add('kg_leche_dia', double.parse(value));
                 },
                 decoration: InputDecoration(
                   // hintText: 'Usuario',
@@ -322,6 +326,7 @@ class DatosAnimalLecheria extends StatelessWidget {
                     onChanged: (value) {
                       final valueGrasa = double.parse(value.toStringAsFixed(1));
                       datoAnimalCtrl.materiaGrasa.value = valueGrasa;
+                      datoAnimalCtrl.calculo.add('material_grasa', valueGrasa);
                     },
                   ),
                 )
