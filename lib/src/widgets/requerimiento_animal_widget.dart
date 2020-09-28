@@ -225,12 +225,21 @@ class RequerimientoAnimal extends StatelessWidget {
               textColor: Colors.black,
             ),
             FlatButton(
-              onPressed: () {},
-              child: Text(
-                'Guardar archivo',
-                style: TextStyle(color: Colors.blue),
-              ),
-            )
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.save,
+                      size: 25,
+                      color: Colors.blue,
+                    ),
+                    Text(
+                      'Guardar archivo',
+                      style: TextStyle(color: Colors.blue, fontSize: 16),
+                    ),
+                  ],
+                ))
           ],
         ),
       ),

@@ -8,7 +8,8 @@ class DatoAnimalController extends GetxController {
   RxString tipo = ''.obs;
   RxMap<String, double> calculo = Map<String, double>().obs;
   RxMap<String, double> requerimientoAnimal = Map<String, double>().obs;
-  RxMap<String, double> racionAnimal = Map<String, double>().obs;
+  RxSet<dynamic> racionAnimal = Set().obs;
+
   @override
   Future<void> onClose() {
     return super.onClose();

@@ -40,6 +40,7 @@ class CalculoLechePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final datoAnimalCtrl = Get.find<DatoAnimalController>();
+    datoAnimalCtrl.racionAnimal.clear();
     return GetBuilder<InsumoFormulacionController>(
         init: InsumoFormulacionController(),
         builder: (_) => Scaffold(
@@ -151,6 +152,7 @@ class RequerimientoAnimalLeche extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final datoAnimalCtrl = Get.find<DatoAnimalController>();
     final resultadosInsumo = this.getResultados(insumos);
     final balanceTotal = this.getBalance(insumos);
     final insumosMsTotal = resultadosInsumo['ms'];
@@ -202,6 +204,31 @@ class RequerimientoAnimalLeche extends StatelessWidget
       em: insumosNdtTotal,
       pb: insumosPbTotal,
     );
+    datoAnimalCtrl.requerimientoAnimal.value = {};
+    datoAnimalCtrl.requerimientoAnimal.addAll({
+      'mantenimiento_ms': mantenimiento.ms,
+      'mantenimiento_ndt': mantenimiento.ndt,
+      'mantenimiento_em': mantenimiento.em,
+      'mantenimiento_pb': mantenimiento.pb,
+      'produccion_ms': produccion.ms,
+      'produccion_ndt': produccion.ndt,
+      'produccion_em': produccion.em,
+      'produccion_pb': produccion.pb,
+      'rq_total_ms': qrTotal.ms,
+      'rq_total_ndt': qrTotal.ndt,
+      'rq_total_em': qrTotal.em,
+      'rq_total_pb': qrTotal.pb,
+      'exceso_ms': exceso.ms,
+      'exceso_ndt': exceso.ndt,
+      'exceso_em': exceso.em,
+      'exceso_pb': exceso.pb,
+      'total_tmr_ms': totalTmr.ms,
+      'total_tmr_ndt': totalTmr.ndt,
+      'total_tmr_em': totalTmr.em,
+      'total_tmr_pb': totalTmr.pb,
+      'balance_concentrado': balanceTotal['forraje'],
+      'balance_voluminoso': balanceTotal['concentrado'],
+    });
     return RequerimientoAnimal(
       exceso: exceso,
       mantenimiento: mantenimiento,
