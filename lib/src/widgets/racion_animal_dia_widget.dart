@@ -46,9 +46,6 @@ class RacionAnimalWidget extends StatelessWidget with RacionAnimalDia {
                 'kg_tn': kgTn,
               });
 
-              datoAnimalCtrl.racionAnimal.forEach((element) {
-                print(element);
-              });
               print(
                   'racion animal length ${datoAnimalCtrl.racionAnimal.length}');
 

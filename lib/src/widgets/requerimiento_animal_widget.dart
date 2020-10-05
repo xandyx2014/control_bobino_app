@@ -10,6 +10,8 @@ class RequerimientoAnimal extends StatelessWidget {
       totalAporte;
   final double balanceConcentrado;
   final double balanceForraje;
+  final VoidCallback onSave;
+  final VoidCallback onCancel;
   const RequerimientoAnimal(
       {Key key,
       @required this.mantenimiento,
@@ -18,7 +20,9 @@ class RequerimientoAnimal extends StatelessWidget {
       @required this.exceso,
       @required this.totalAporte,
       @required this.balanceConcentrado,
-      @required this.balanceForraje})
+      @required this.balanceForraje,
+      this.onCancel,
+      this.onSave})
       : super(key: key);
 
   @override
@@ -225,7 +229,24 @@ class RequerimientoAnimal extends StatelessWidget {
               textColor: Colors.black,
             ),
             FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: Text('¿Desea guardar el calculo?'),
+                      actions: [
+                        FlatButton(
+                            onPressed: this.onCancel,
+                            child: Text(
+                              'Cancelar',
+                              style: TextStyle(color: Colors.grey),
+                            )),
+                        FlatButton(
+                            onPressed: this.onSave, child: Text('Aceptar')),
+                      ],
+                    ),
+                  );
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

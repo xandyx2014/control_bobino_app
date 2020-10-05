@@ -1,3 +1,6 @@
+import 'package:control_animal_app/route.dart';
+import 'package:control_animal_app/src/services/save_calcule.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DatoAnimalController extends GetxController {
@@ -21,6 +24,57 @@ class DatoAnimalController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+  }
+
+  guardarDato() async {
+    try {
+      final saveCalcule = SaveService();
+      final saveResp = await saveCalcule.save(
+          peso: this.peso.value,
+          kgLecheDia: this.kgLeche.value,
+          materialGrasa: this.materiaGrasa.value,
+          tipo: this.tipo.value,
+          gmd: this.gmd.value);
+      print(this.racionAnimal.length);
+      this.racionAnimal.forEach((e) {
+        saveCalcule.saveRacion(e, saveResp['id']);
+      });
+      final requerimientoResp = await saveCalcule.saveRequerimiento(
+          requerimientoAnimal, saveResp['id']);
+      Get.back();
+      Get.back();
+      showDialog(
+          context: Get.context,
+          builder: (BuildContext context) => AlertDialog(
+                title: Text(
+                  'Se ha creado correctamente',
+                ),
+                actions: [
+                  FlatButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text('Salir'))
+                ],
+              ));
+    } catch (e) {
+      Get.back();
+      showDialog(
+          context: Get.context,
+          builder: (BuildContext context) => AlertDialog(
+                title: Text('Ha ocurrido un error'),
+                actions: [
+                  FlatButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text('Salir'))
+                ],
+              ));
+    }
+
+    // final racion = await saveCalcule.saveRacion(racionAnimal, saveResp['id']);
+    // print(racion.toString());
   }
 
   loadingData() {
