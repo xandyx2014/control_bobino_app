@@ -1,5 +1,6 @@
 // import 'package:control_animal_app/src/pages/lecheria/lecheria_controller.dart';
 import 'package:control_animal_app/src/widgets/content_page_widget.dart';
+import 'package:control_animal_app/src/widgets/modal_view_widget.dart';
 import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 
@@ -55,7 +56,9 @@ class ListLecheria extends StatelessWidget {
                     onPressed: () {
                       showModalBottomSheet(
                         context: context,
-                        builder: (context) => ModalFit(),
+                        builder: (context) => ModalFit(
+                          calculo: null,
+                        ),
                       );
                     }),
               ),
@@ -66,36 +69,6 @@ class ListLecheria extends StatelessWidget {
           );
         },
       ),
-    );
-  }
-}
-
-class ModalFit extends StatelessWidget {
-  const ModalFit({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final Color colorPrimary = Colors.grey;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ListTile(
-          title: Text('Ver'),
-          leading: Icon(
-            Icons.book,
-            color: colorPrimary,
-          ),
-          onTap: () => Navigator.of(context).pop(),
-        ),
-        ListTile(
-          title: Text('Borrar'),
-          leading: Icon(
-            Icons.delete,
-            color: colorPrimary,
-          ),
-          onTap: () => Navigator.of(context).pop(),
-        )
-      ],
     );
   }
 }

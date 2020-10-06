@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TitleCard extends StatelessWidget {
   final String property;
-  final String value;
+  final dynamic value;
   final Color textColor;
 
   const TitleCard(
