@@ -32,7 +32,6 @@ class AuthService {
   }
 
   Future<UserModel> login(UserModel user) async {
-    print(user.toJson());
     try {
       Response response = await this._http.post(
         '/login',

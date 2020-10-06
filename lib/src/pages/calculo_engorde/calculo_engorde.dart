@@ -40,6 +40,7 @@ class CalculoEngordePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final datoAnimalCtrl = Get.find<DatoAnimalController>();
+    datoAnimalCtrl.racionAnimal.clear();
     return GetBuilder<InsumoFormulacionController>(
         init: InsumoFormulacionController(),
         builder: (_) => Scaffold(
@@ -144,6 +145,7 @@ class RequerimientoAnimalLeche extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final datoAnimalCtrl = Get.find<DatoAnimalController>();
     final resultadosInsumo = this.getResultados(insumos);
     final balanceTotal = this.getBalance(insumos);
     final insumosMsTotal = resultadosInsumo['ms'];
@@ -181,18 +183,49 @@ class RequerimientoAnimalLeche extends StatelessWidget
     );
     mantenimiento.setNdt(
         ((((rqTotal.ms / rqTotal.em) + 0.3032) / 0.9455) * rqTotal.ms) / 4.4);
+    final msExceso = (rqTotal.ms - insumosMsTotal) / (insumosMsTotal);
+    final ndt = ((rqTotal.ndt - insumosNdtTotal) / (insumosNdtTotal));
+    final em = (rqTotal.em - insumosEmTotal) / (insumosEmTotal);
+    final pb = (rqTotal.pb - insumosPbTotal) / (insumosPbTotal);
     final exceso = RequerimientoAnimalModel(
-      ms: (rqTotal.ms - insumosMsTotal) / (insumosMsTotal),
-      ndt: (rqTotal.ndt - insumosNdtTotal) / (insumosNdtTotal),
-      em: (rqTotal.em - insumosEmTotal) / (insumosEmTotal),
-      pb: (rqTotal.pb - insumosPbTotal) / (insumosPbTotal),
+      ms: msExceso.isNaN == true ? 0.0 : msExceso,
+      // nan
+      ndt: ndt.isNaN == true ? 0.0 : ndt,
+      // nan
+      em: em.isNaN == true ? 0.0 : em,
+      // infinity
+      pb: pb.isNaN == true ? 0.0 : em,
     );
     final totalAporte = RequerimientoAnimalModel(
         ms: insumosMsTotal,
         ndt: insumosNdtTotal,
         em: insumosEmTotal,
         pb: insumosPbTotal);
-    print(mantenimiento.ndt);
+    datoAnimalCtrl.requerimientoAnimal.value = {};
+    datoAnimalCtrl.requerimientoAnimal.addAll({
+      'mantenimiento_ms': mantenimiento.ms,
+      'mantenimiento_ndt': mantenimiento.ndt,
+      'mantenimiento_em': mantenimiento.em,
+      'mantenimiento_pb': mantenimiento.pb,
+      'produccion_ms': produccion.ms,
+      'produccion_ndt': produccion.ndt,
+      'produccion_em': produccion.em,
+      'produccion_pb': produccion.pb,
+      'rq_total_ms': rqTotal.ms,
+      'rq_total_ndt': rqTotal.ndt,
+      'rq_total_em': rqTotal.em,
+      'rq_total_pb': rqTotal.pb,
+      'exceso_ms': exceso.ms,
+      'exceso_ndt': exceso.ndt,
+      'exceso_em': exceso.em,
+      'exceso_pb': exceso.pb,
+      'total_tmr_ms': totalAporte.ms,
+      'total_tmr_ndt': totalAporte.ndt,
+      'total_tmr_em': totalAporte.em,
+      'total_tmr_pb': totalAporte.pb,
+      'balance_concentrado': balanceTotal['forraje'],
+      'balance_voluminoso': balanceTotal['concentrado'],
+    });
     return RequerimientoAnimal(
       exceso: exceso,
       mantenimiento: mantenimiento,
@@ -201,6 +234,15 @@ class RequerimientoAnimalLeche extends StatelessWidget
       totalAporte: totalAporte,
       balanceForraje: balanceTotal['forraje'],
       balanceConcentrado: balanceTotal['concentrado'],
+      onSave: () {
+        // Get.offNamed(AppRoutes.home);
+        print('hi');
+        datoAnimalCtrl.guardarDato();
+      },
+      onCancel: () {
+        print('On cancel');
+        Get.back();
+      },
     );
   }
 }
@@ -255,6 +297,7 @@ class _DatosAnimalEngorde extends StatelessWidget {
                     divisions: 30,
                     onChanged: (value) {
                       datoAnimalCtrl.peso.value = value;
+                      datoAnimalCtrl.calculo.add('peso_kg', value);
                     },
                   ),
                 ),
@@ -288,6 +331,7 @@ class _DatosAnimalEngorde extends StatelessWidget {
                     onChanged: (value) {
                       final valueGrasa = double.parse(value.toStringAsFixed(1));
                       datoAnimalCtrl.gmd.value = valueGrasa;
+                      datoAnimalCtrl.calculo.add('gmd', valueGrasa);
                     },
                   ),
                 )

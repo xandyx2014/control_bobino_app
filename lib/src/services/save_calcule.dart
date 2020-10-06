@@ -41,6 +41,7 @@ class SaveService {
   }
 
   Future<Map<dynamic, dynamic>> saveRequerimiento(requerimiento, id) async {
+    print('Requerimiento $requerimiento id $id');
     final Response response = await _http.post(
       '/lecheria/$id/requerimiento',
       data: requerimiento,

@@ -1,4 +1,3 @@
-import 'package:control_animal_app/route.dart';
 import 'package:control_animal_app/src/controller/dato_animal_controller.dart';
 import 'package:control_animal_app/src/controller/global_controller.dart';
 import 'package:control_animal_app/src/controller/insumo_formulacion_controller.dart';
