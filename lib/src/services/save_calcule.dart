@@ -58,4 +58,9 @@ class SaveService {
         (response.data as List).map((e) => CalculoModel.fromJson(e)).toList();
     return data;
   }
+
+  Future<dynamic> delete(int i) async {
+    final Response response = await _http.delete('/lecheria/$i');
+    return response.data;
+  }
 }

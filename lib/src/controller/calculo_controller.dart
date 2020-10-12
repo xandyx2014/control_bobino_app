@@ -11,7 +11,14 @@ class CalculoController extends GetxController {
   }
 
   getAll(String q) async {
+    this.calculo.clear();
     final List<CalculoModel> calculoModel = await saveService.getAll(q: q);
     this.calculo.addAll(calculoModel);
+  }
+
+  removeItem(int index, CalculoModel calculoModel) async {
+    this.calculo.removeAt(index);
+    final dynamic resp = await saveService.delete(calculoModel.id);
+    return resp;
   }
 }
