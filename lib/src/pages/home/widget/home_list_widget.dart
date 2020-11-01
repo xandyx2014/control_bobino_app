@@ -1,6 +1,6 @@
-import 'package:control_animal_app/route.dart';
-import 'package:control_animal_app/src/model/product_model.dart';
-import 'package:control_animal_app/src/utils/cart_icons_icons.dart';
+import 'package:controlanimalapp/route.dart';
+import 'package:controlanimalapp/src/model/product_model.dart';
+import 'package:controlanimalapp/src/utils/cart_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../utils/cart_icons_icons.dart';

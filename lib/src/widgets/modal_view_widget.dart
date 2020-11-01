@@ -1,5 +1,5 @@
-import 'package:control_animal_app/src/model/calculos_model.dart';
-import 'package:control_animal_app/src/widgets/title_card_widget.dart';
+import 'package:controlanimalapp/src/model/calculos_model.dart';
+import 'package:controlanimalapp/src/widgets/title_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class ModalFit extends StatelessWidget {

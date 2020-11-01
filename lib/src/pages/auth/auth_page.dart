@@ -1,4 +1,4 @@
-import 'package:control_animal_app/src/controller/auth_controller.dart';
+import 'package:controlanimalapp/src/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,4 +1,4 @@
-import 'package:control_animal_app/route.dart';
+import 'package:controlanimalapp/route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

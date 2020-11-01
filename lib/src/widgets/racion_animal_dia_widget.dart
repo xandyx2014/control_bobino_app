@@ -1,7 +1,7 @@
-import 'package:control_animal_app/src/controller/dato_animal_controller.dart';
-import 'package:control_animal_app/src/controller/global_controller.dart';
-import 'package:control_animal_app/src/mixin/racion_animal_dia_mixin.dart';
-import 'package:control_animal_app/src/widgets/title_card_widget.dart';
+import 'package:controlanimalapp/src/controller/dato_animal_controller.dart';
+import 'package:controlanimalapp/src/controller/global_controller.dart';
+import 'package:controlanimalapp/src/mixin/racion_animal_dia_mixin.dart';
+import 'package:controlanimalapp/src/widgets/title_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

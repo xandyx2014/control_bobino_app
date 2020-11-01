@@ -1,10 +1,10 @@
-import 'package:control_animal_app/src/interceptor/auth_interceptor.dart';
-import 'package:control_animal_app/src/model/calculos_model.dart';
-import 'package:control_animal_app/src/utils/enviroment_util.dart';
+import 'package:controlanimalapp/src/interceptor/auth_interceptor.dart';
+import 'package:controlanimalapp/src/model/calculos_model.dart';
+import 'package:controlanimalapp/src/utils/enviroment_util.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-export 'package:control_animal_app/src/model/calculos_model.dart';
+export 'package:controlanimalapp/src/model/calculos_model.dart';
 
 class SaveService {
   final _http = new Dio(

@@ -1,5 +1,5 @@
-import 'package:control_animal_app/src/model/user_model.dart';
-import 'package:control_animal_app/src/services/auth_service.dart';
+import 'package:controlanimalapp/src/model/user_model.dart';
+import 'package:controlanimalapp/src/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';

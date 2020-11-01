@@ -1,5 +1,5 @@
-import 'package:control_animal_app/src/mixin/racion_animal_dia_mixin.dart';
-import 'package:control_animal_app/src/model/insumo_model.dart';
+import 'package:controlanimalapp/src/mixin/racion_animal_dia_mixin.dart';
+import 'package:controlanimalapp/src/model/insumo_model.dart';
 import 'package:get/get.dart';
 
 abstract class TipoInsumo {

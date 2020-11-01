@@ -1,12 +1,12 @@
-import 'package:control_animal_app/src/model/insumo_model.dart';
-import 'package:control_animal_app/src/model/leche_model.dart';
-import 'package:control_animal_app/src/model/rq_model.dart';
-import 'package:control_animal_app/src/model/rq_model_two.dart';
+import 'package:controlanimalapp/src/model/insumo_model.dart';
+import 'package:controlanimalapp/src/model/leche_model.dart';
+import 'package:controlanimalapp/src/model/rq_model.dart';
+import 'package:controlanimalapp/src/model/rq_model_two.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
-export 'package:control_animal_app/src/model/insumo_model.dart';
-export 'package:control_animal_app/src/model/leche_model.dart';
-export 'package:control_animal_app/src/model/rq_model.dart';
+export 'package:controlanimalapp/src/model/insumo_model.dart';
+export 'package:controlanimalapp/src/model/leche_model.dart';
+export 'package:controlanimalapp/src/model/rq_model.dart';
 
 abstract class _PathRq {
   static const rqEnergiaGanacia =

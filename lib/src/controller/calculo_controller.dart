@@ -1,6 +1,7 @@
-import 'package:control_animal_app/src/services/save_calcule.dart';
+import 'package:controlanimalapp/src/model/calculos_model.dart';
+import 'package:controlanimalapp/src/services/save_calcule.dart';
 import 'package:get/get.dart';
-export 'package:control_animal_app/src/services/save_calcule.dart';
+export 'package:controlanimalapp/src/services/save_calcule.dart';
 
 class CalculoController extends GetxController {
   final SaveService saveService = new SaveService();

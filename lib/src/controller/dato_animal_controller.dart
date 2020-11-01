@@ -1,4 +1,4 @@
-import 'package:control_animal_app/src/services/save_calcule.dart';
+import 'package:controlanimalapp/src/services/save_calcule.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

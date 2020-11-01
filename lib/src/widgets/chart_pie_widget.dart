@@ -1,5 +1,5 @@
-import 'package:control_animal_app/src/controller/global_controller.dart';
-import 'package:control_animal_app/src/mixin/requerimiento_animal_mixin.dart';
+import 'package:controlanimalapp/src/controller/global_controller.dart';
+import 'package:controlanimalapp/src/mixin/requerimiento_animal_mixin.dart';
 import 'package:flutter/material.dart';
 import 'indicator_widget.dart';
 import 'package:fl_chart/fl_chart.dart';

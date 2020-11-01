@@ -1,6 +1,6 @@
-import 'package:control_animal_app/src/interceptor/auth_interceptor.dart';
-import 'package:control_animal_app/src/model/user_model.dart';
-import 'package:control_animal_app/src/utils/enviroment_util.dart';
+import 'package:controlanimalapp/src/interceptor/auth_interceptor.dart';
+import 'package:controlanimalapp/src/model/user_model.dart';
+import 'package:controlanimalapp/src/utils/enviroment_util.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

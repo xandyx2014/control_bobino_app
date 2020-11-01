@@ -1,6 +1,6 @@
-import 'package:control_animal_app/src/pages/home/widget/card_widget.dart';
-import 'package:control_animal_app/src/utils/cart_icons_icons.dart';
-import 'package:control_animal_app/src/widgets/drawer_widget.dart';
+import 'package:controlanimalapp/src/pages/home/widget/card_widget.dart';
+import 'package:controlanimalapp/src/utils/cart_icons_icons.dart';
+import 'package:controlanimalapp/src/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'widget/home_list_widget.dart';
 

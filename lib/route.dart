@@ -1,8 +1,8 @@
-import 'package:control_animal_app/src/pages/calculo_engorde/calculo_engorde.dart';
-import 'package:control_animal_app/src/pages/calculo_leche/calculo_leche.dart';
-import 'package:control_animal_app/src/pages/engorde/engorde_page.dart';
-import 'package:control_animal_app/src/pages/lecheria/lecheria_page.dart';
-import 'package:control_animal_app/src/pages/welcome/welcome_page.dart';
+import 'package:controlanimalapp/src/pages/calculo_engorde/calculo_engorde.dart';
+import 'package:controlanimalapp/src/pages/calculo_leche/calculo_leche.dart';
+import 'package:controlanimalapp/src/pages/engorde/engorde_page.dart';
+import 'package:controlanimalapp/src/pages/lecheria/lecheria_page.dart';
+import 'package:controlanimalapp/src/pages/welcome/welcome_page.dart';
 import 'package:get/get.dart';
 import 'src/pages/auth/auth_page.dart';
 import 'src/pages/home/home_page.dart';

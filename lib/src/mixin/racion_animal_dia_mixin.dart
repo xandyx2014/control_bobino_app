@@ -1,4 +1,4 @@
-import 'package:control_animal_app/src/model/insumo_model.dart';
+import 'package:controlanimalapp/src/model/insumo_model.dart';
 
 class RacionAnimalDia {
   double getSubTotal(String tipoInsumo, List<InsumoModel> insumoList) {

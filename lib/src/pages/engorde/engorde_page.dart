@@ -1,8 +1,9 @@
 // import 'package:control_animal_app/src/pages/lecheria/lecheria_controller.dart';
-import 'package:control_animal_app/src/controller/calculo_controller.dart';
-import 'package:control_animal_app/src/widgets/content_page_widget.dart';
-import 'package:control_animal_app/src/widgets/dialog_confirm_widget.dart';
-import 'package:control_animal_app/src/widgets/modal_view_widget.dart';
+import 'package:controlanimalapp/src/controller/calculo_controller.dart';
+import 'package:controlanimalapp/src/model/calculos_model.dart';
+import 'package:controlanimalapp/src/widgets/content_page_widget.dart';
+import 'package:controlanimalapp/src/widgets/dialog_confirm_widget.dart';
+import 'package:controlanimalapp/src/widgets/modal_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:get/get.dart';

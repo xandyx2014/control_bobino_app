@@ -1,5 +1,5 @@
-import 'package:control_animal_app/src/controller/dato_animal_controller.dart';
-import 'package:control_animal_app/src/controller/global_controller.dart';
+import 'package:controlanimalapp/src/controller/dato_animal_controller.dart';
+import 'package:controlanimalapp/src/controller/global_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
