@@ -1,5 +1,16 @@
 # control_animal_app
-
+![](./screen/1.png)
+![](./screen/2.png)
+![](./screen/3.png)
+![](./screen/4.png)
+![](./screen/5.png)
+![](./screen/6.png)
+![](./screen/7.png)
+![](./screen/8.png)
+![](./screen/9.png)
+![](./screen/10.png)
+![](./screen/11.png)
+![](./screen/12.png)
 A new Flutter project.
 
 ## Getting Started
